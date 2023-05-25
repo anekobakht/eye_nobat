@@ -1,0 +1,69 @@
+﻿@model eye_nobat.Models.admin
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+
+<div id="myNavRight" class="overlayRight">
+    <div class="overlay-contentRight">
+        <div class="card">
+            <div class="card-header text-white bg-success">
+                تغییر کلمه عبور
+            </div>
+            <div class="card-body">
+                <hr />
+                <div class="row">
+                    <div class="col-md-4">
+                        <form asp-action="change_pass">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" value="@ViewBag.id" />
+                            <div class="form-group">
+                                <label class="control-label">نام و نام خانوادگی</label>
+                                <input name="flname" readonly required value="@ViewBag.flname" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">نام کاربری</label>
+                                <input name="uname" readonly required value="@ViewBag.uname" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">کلمه عبور</label>
+                                <input type="password" name="pass" required value="@ViewBag.pass" class="form-control" />
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fa fa-key" aria-hidden="true"></i>
+                                    تغییر کلمه عبور
+                                </button>
+                                <a class="btn btn-info" href="javascript:void(0)" onclick="history.back()">
+                                    <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                                    انصراف و بازگشت
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById("myNavRight").style.width = "100%";
+        //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        function closeNavRight() {
+            document.getElementById("myNavRight").style.width = "0%";
+            setTimeout(function () {
+                window.location.href = "/admins/dashboard";
+            }, 2000);
+        }
+
+    </script>
+}

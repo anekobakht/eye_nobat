@@ -1,0 +1,116 @@
+﻿@model eye_nobat.Models.koli
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+<div id="myNavRight" class="overlayRight">
+    <div class="overlay-contentRight">
+        <div class="card">
+            <div class="card-header text-white bg-primary">
+                تکمیل اطلاعات
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="id" />
+                            <div class="form-group">
+                                <label asp-for="flname" class="control-label"></label>
+                                <input readonly asp-for="flname" class="form-control" />
+                                <span asp-validation-for="flname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="name_hos" class="control-label"></label>
+                                <input readonly asp-for="name_hos" class="form-control" />
+                                <span asp-validation-for="name_hos" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="date_vorud" class="control-label"></label>
+                                <input readonly asp-for="date_vorud" class="form-control" />
+                                <span asp-validation-for="date_vorud" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="saat_vorud" class="control-label"></label>
+                                <input readonly asp-for="saat_vorud" class="form-control" />
+                                <span asp-validation-for="saat_vorud" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <br />
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="moshahede" class="control-label"></label>
+                                @if (Model.moshahede == true)
+                                {
+                                    <input name="moshahede" type="checkbox" checked />
+                                }
+                                else if (Model.moshahede !=true)
+                                {
+                                    <input name="moshahede" type="checkbox" />
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="ejra" class="control-label"></label>
+                                @if (Model.ejra == true)
+                                {
+                                    <input name="ejra" type="checkbox" checked />
+                                }
+                                else if (Model.ejra != true)
+                                {
+                                    <input name="ejra" type="checkbox" />
+                                }
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="etmam" class="control-label"></label>
+                                @if (Model.etmam == true)
+                                {
+                                    <input name="etmam" type="checkbox" checked />
+                                }
+                                else if (Model.etmam != true)
+                                {
+                                    <input name="etmam" type="checkbox" />
+                                }
+                                <span asp-validation-for="etmam" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <hr />
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">
+                                   <span>ثبت اطلاعات</span>
+                                </button>
+                                <a onclick="history.back()" class="btn btn-outline-primary">
+                                    <span>انصراف و بازگشت</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

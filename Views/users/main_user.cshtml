@@ -1,0 +1,133 @@
+﻿@model IEnumerable<never_vezarat.Models.user>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+            <div id="card1" class="card" style="opacity:0">
+                <div class="card-header text-white shadow-lg p-3 mb-2 bg-white rounded">
+                    <span>سامانه بانک چشم</span>
+                </div>
+                <div class="view view-cascade overlay" style="text-align:center">
+                    <img class="card-img-top" src="~/Img/eyeBank.png" style="height:200px" />
+                </div>
+                <div class="card-footer">
+                    <a target="_blank" href="http://46.209.127.38:8080/" style="justify-content:center;width:100%;display:inline-flex" class="btn btn-secondary">
+                        <i class="material-icons">visibility</i>
+                        <span>ورود به سامانه بانک چشم</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div id="card2" class="card" style="opacity:0">
+                <div class="card-header text-white shadow-lg p-3 mb-2 bg-white rounded">
+                    <span>پرتال بانک چشم</span>
+                </div>
+                <div class="view view-cascade overlay" style="text-align:center">
+                    <img class="card-img-top" src="~/Img/portal.png" style="height:200px" />
+                </div>
+                <div class="card-footer">
+                    <a target="_blank" href="http://iraneyebank.org" style="justify-content:center;width:100%;display:inline-flex" class="btn btn-secondary">
+                        <i class="material-icons">important_devices</i>
+                        <span>ورود به پرتال بانک چشم</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div id="card3" class="card" style="opacity:0">
+                <div class="card-header text-white shadow-lg p-3 mb-2 bg-white rounded">
+                    <span>اتوماسیون اداری</span>
+                </div>
+                <div class="view view-cascade overlay" style="text-align:center">
+                    <img class="card-img-top" src="~/Img/otomasion.jpg" style="height:200px" />
+                </div>
+                <div class="card-footer">
+                    <a target="_blank" href="#" style="justify-content:center;width:100%;display:inline-flex" class="btn btn-secondary disabled">
+                        <i class="material-icons">important_devices</i>
+                        <span>ورود به سامانه اتوماسیون اداری</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div id="card4" class="card" style="opacity:0">
+                <div class="card-header text-white shadow-lg p-3 mb-2 bg-white rounded">
+                    <span>نظام پیشنهادات</span>
+                </div>
+                <div class="view view-cascade overlay" style="text-align:center">
+                    <img class="card-img-top" src="~/Img/suggest.png" style="height:200px" />
+                </div>
+                <div class="card-footer">
+                    <a target="_blank" href="#" style="justify-content:center;width:100%;display:inline-flex" class="btn btn-secondary disabled">
+                        <i class="material-icons">important_devices</i>
+                        <span>ورود به سامانه نظام پیشنهادات</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div id="card5" class="card" style="opacity:0">
+                <div class="card-header text-white shadow-lg p-3 mb-2 bg-white rounded">
+                    <span>سامانه پذیرش</span>
+                </div>
+                <div class="view view-cascade overlay" style="text-align:center">
+                    <img class="card-img-top" src="~/Img/paziresh.png" style="height:200px" />
+                </div>
+                <div class="card-footer">
+                    <a target="_blank" href="#" style="justify-content:center;width:100%;display:inline-flex" class="btn btn-secondary disabled">
+                        <i class="material-icons">important_devices</i>
+                        <span>ورود به سامانه پذیرش</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div id="card6" class="card" style="opacity:0">
+                <div class="card-header text-white shadow-lg p-3 mb-2 bg-white rounded">
+                    <span>سامانه آرشیو اسناد</span>
+                </div>
+                <div class="view view-cascade overlay" style="text-align:center">
+                    <img class="card-img-top" src="~/Img/archive.jpeg" style="height:200px" />
+                </div>
+                <div class="card-footer">
+                    <a target="_blank" href="#" style="justify-content:center;width:100%;display:inline-flex" class="btn btn-secondary disabled">
+                        <i class="material-icons">important_devices</i>
+                        <span>ورود به سامانه آرشیو اسناد</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+<script>
+    $(document).ready(() => {
+        $("#card1").animate({ opacity: '1' }, 500, function () {
+            $("#card2").animate({ opacity: '1' }, 500, function () {
+                $("#card3").animate({ opacity: '1' }, 500, function () {
+                    $("#card4").animate({ opacity: '1' }, 500, function () {
+                        $("#card5").animate({ opacity: '1' }, 500, function () {
+                            $("#card6").animate({ opacity: '1' }, 500)
+                        })
+                    })
+                })
+            })
+        });
+    });
+</script>
+
+
+
+}
+
+
+

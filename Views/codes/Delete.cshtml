@@ -1,0 +1,95 @@
+﻿@model eye_nobat.Models.code
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+
+<div id="myNavRight" class="overlayRight">
+    <div class="overlay-contentRight">
+        <div class="card">
+            <div class="card-header text-white bg-primary">
+                آیا مایل به حذف اطلاعات می باشید؟
+            </div>
+            <div class="card-body">
+                <div>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.name)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.name)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.num)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.num)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.sms)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @if (Model.sms == true)
+                            {
+                                <input type="checkbox" checked disabled />
+                            }
+                            else
+                            {
+                                <input type="checkbox" disabled />
+                            }
+                        </dd>
+                    </dl>
+                    <div>
+                        <hr />
+                    </div>
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="id" />
+                        <button type="submit" class="btn btn-danger text-white">
+                            <i class="bx bxs-trash"></i>
+                            حذف اطلاعات
+                        </button>
+                        <a onclick="history.back()" class="btn btn-outline-primary">
+                            <i class="bx bxs-left-arrow" aria-hidden="true"></i>
+                            <span>انصراف و بازگشت</span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>*@
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.getElementById("index").style.transform = "scale(1)";
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            document.getElementById("myNavRight").style.width = "100%";
+        });
+
+
+        function back() {
+            document.getElementById("myNavRight").style.transform = "scale(0)";
+            setTimeout(function () {
+                window.location.href = "/codes/Index";
+            }, 2000);
+        }
+    </script>
+}

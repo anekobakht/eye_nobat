@@ -1,0 +1,132 @@
+﻿@model eye_nobat.Models.never
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+
+<div id="myNavTop" class="overlayTop">
+    <div class="overlay-contentTop">
+        <div class="card">
+            <div class="card-header text-white bg-primary">
+                جزئیات
+            </div>
+            <div class="card-body">
+
+                <div>
+
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.bakhsh.name)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.bakhsh.name)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.code.name)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.code.name)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.flname)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.flname)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.codemeli)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.codemeli)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.sen)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.sen)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.jensiat.name)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.jensiat.name)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.date_morajee)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.date_morajee)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.saat_morajee)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.saat_morajee)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.date_voghu)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.date_voghu)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.saat_voghu)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.saat_voghu)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.tozihat)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.tozihat)
+                        </dd>
+                    </dl>
+                </div>
+                <div>
+                    <a class="btn btn-primary" asp-action="Index_search" asp-controller="peyvasts" asp-route-id="@Model?.id">
+                        پیوست / پیوست ها
+                    </a>
+                    <a onclick="history.back()" class="btn btn-outline-primary">
+                        <span>انصراف و بازگشت</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById('myNavTop').style.height = '100%';
+        function create() {
+            document.getElementById("index").style.transform = "scale(0)";
+            setTimeout(function () {
+                window.location.href = "/hos/Create";
+            }, 2000);
+        }
+        function edit() {
+            document.getElementById("index").style.transform = "scale(0)";
+            setTimeout(function () {
+                var param = document.getElementById("edit").title;
+                window.location.href = "/hos/Edit/" + param;
+            }, 2000);
+        }
+
+        function back() {
+            document.getElementById('myNavTop').style.height = '0';
+            setTimeout(function () {
+                window.location.href = "/nevers/Index";
+            }, 2000);
+        }
+
+    </script>
+}

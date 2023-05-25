@@ -1,0 +1,79 @@
+﻿@model eye_nobat.Models.mobile
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div id="myNavRight" class="overlayRight">
+    <div class="overlay-contentRight">
+        <div class="card">
+            <div class="card-header text-white bg-primary">
+                ویرایش شماره همراه
+            </div>
+            <div class="card-body">
+                <hr />
+                <form asp-action="Edit">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="id" />
+                            <div class="form-group">
+                                <label asp-for="flname" class="control-label"></label>
+                                <input required asp-for="flname" class="form-control" />
+                                <span asp-validation-for="flname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label asp-for="number" class="control-label"></label>
+                                <input type="number" required asp-for="number" class="form-control" />
+                                <span asp-validation-for="number" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div>
+                            <hr />
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bx bx-edit"></i>
+                                    ویرایش اطلاعات
+                                </button>
+                                <a onclick="history.back()" class="btn btn-outline-primary">
+                                    <i class="bx bxs-left-arrow" aria-hidden="true"></i>
+                                    <span>انصراف و بازگشت</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.getElementById("index").style.transform = "scale(1)";
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            document.getElementById("myNavRight").style.width = "100%";
+        });
+
+
+        function back() {
+            document.getElementById("myNavRight").style.transform = "scale(0)";
+            setTimeout(function () {
+                window.location.href = "/mobiles/Index";
+            }, 2000);
+        }
+    </script>
+}

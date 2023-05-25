@@ -1,0 +1,86 @@
+﻿@model never_vezarat.Models.user
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+
+@*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% alert*@
+@if (TempData["tekrari"] != null)
+{
+    if (TempData["tekrari"].ToString() == "1")
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+           نام کاربری تکراری می باشد
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+}
+
+@*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% alert*@
+
+
+
+<div class="card">
+    <div class="card-header text-white bg-success">
+        تعریف کاربر جدید
+    </div>
+    <div class="card-body">
+        <form asp-action="Create">
+            <div class="row">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="flname" class="control-label"></label>
+                        <input required asp-for="flname" class="form-control" />
+                        <span asp-validation-for="flname" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="username" class="control-label"></label>
+                        <input required asp-for="username" class="form-control" />
+                        <span asp-validation-for="username" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="userpass" class="control-label"></label>
+                        <input required type="password" asp-for="userpass" class="form-control" />
+                        <span asp-validation-for="userpass" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="admin" class="control-label"></label>
+                        <select style="width:100%" asp-for="admin">
+                            <option value="True">بله</option>
+                            <option value="False">خیر</option>
+                        </select>
+                        <span asp-validation-for="userpass" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success">
+                            <i class="material-icons">sentiment_very_satisfied</i>
+                            اضافه کردن کاربر
+                        </button>
+                        <a class="btn btn-info" asp-action="Index">
+                            <i class="material-icons">sentiment_dissatisfied</i>
+                            انصراف و بازگشت
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

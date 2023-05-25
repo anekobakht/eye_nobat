@@ -1,0 +1,299 @@
+﻿@model eye_nobat.Models.user
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "";
+}
+
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>سامانه ثبت خطای 28 گانه</title>
+
+    <!-- Font Awesome -->
+    <link href="~/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    @* <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">*@
+    <!-- Bootstrap core CSS -->
+    <link href="~/MDB-Pro_4.19.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/MDB-Pro_4.19.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="~/MDB-Pro_4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="~/them_admin/style/images/icon.png" />
+
+    <style>
+        html,
+        body,
+        header,
+        .jarallax {
+            height: 100%;
+        }
+
+        h1 {
+            letter-spacing: 2px;
+        }
+
+        h5 {
+            letter-spacing: 2px;
+        }
+
+        .hr-light {
+            border-top: 3px solid #fff;
+            width: 80px;
+        }
+
+        footer.page-footer {
+            background-color: #6f7782 !important;
+        }
+
+        .collapse.navbar-collapse {
+            direction: rtl !important;
+        }
+
+        #hirad_logo {
+            width: 200px;
+            height: 150px;
+        }
+
+        .btn:hover {
+            color: red !important;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-right: 50px;
+        }
+
+        .bg {
+            /* The image used */
+            background-image: url("../Img/loader.gif");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        /* body{
+            left:-2000px;
+        }*/
+
+    </style>
+
+</head>
+
+
+<body style="position:relative">
+
+    <environment names="Development">
+        <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+    </environment>
+
+
+
+    <div class="cursor"></div>
+    @if (TempData["payam"]?.ToString() == "auth")
+    {
+        <script>
+            alert("نام کاربری یا کلمه عبور نادرست می باشد")
+        </script>
+    }
+
+    @*modal*@
+    <form asp-action="login">
+
+        <div class="modal fade" id="modal_form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-white bg-danger text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">احراز هویت</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <i class="fa fa-user prefix grey-text"></i>
+                            <input  name="uname" type="text" id="form3" class="form-control validate" required>
+                            <label data-error="wrong" data-success="right" for="form3">نام کاربری</label>
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <i class="fa fa-key prefix grey-text"></i>
+                            <input autocomplete="new-password" name="pass" type="password" id="form2" class="form-control validate" required>
+                            <label data-error="wrong" data-success="right" for="form2">کلمه عبور</label>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button onclick="move_left" type="submit" class="btn btn-outline-danger btn-rounded">ورود به سامانه</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    @*modal*@
+    <!--Main Navigation-->
+
+
+
+
+
+    <header>
+        <!-- Intro Section -->
+        <div id="top" class="view jarallax" @*data-jarallax='{"speed": 0.2}'*@ style="background-image: url('../Img/bg_main.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+            <div class="mask rgba-black-light" style="background-color:rgba(0,0,0,0.7)">
+                <div class="container-fluid h-100 justify-content-center align-items-center">
+                    <div class="row " style="margin-top:250px">
+                        <div class="col-md-12">
+                            <div style="text-align: center; text-align: -webkit-center;">
+                                <img id="hirad_logo" src="~/Img/icon_vezarat.png" />
+                            </div>
+                            <div class="text-center">
+                                <h1 id="motemarkez" class="h1-reponsive white-text  font-weight-bold mb-3" style="left: -1000px; position: absolute; right: 0px; top: -100px;">
+                                    سامانه ثبت خطای 28 گانه
+                                </h1>
+                                <hr class="hr-light mt-4 wow fadeInDown" data-wow-delay="0.4s">
+                                <h5 id="bank" class="text-uppercase mb-5 white-text" style="visibility: visible;position: absolute; right: -1000px; left: 0;">
+                                    وزارت بهداشت، درمان  و آموزش پزشکی
+                                </h5>
+                                @* <a class="btn btn-outline-white wow fadeInDown" data-wow-delay="0.4s">دستورالعمل ها</a>*@
+
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="text-align:center">
+                            <a id="btn" class="btn btn-outline-white btn-rounded wow fadeInDown" data-toggle="modal" data-target="#modal_form" data-wow-delay="0.4s" style="top:50px;transform:scale(0)">ورود به سامانه</a>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+
+    </header>
+    <!--Main Navigation-->
+    <!--Main Layout-->
+    <!--Main Layout-->
+    <!--Footer-->
+    <footer id="footer" class="page-footer text-center text-md-left">
+        <div class="footer-copyright py-3 text-center">
+            <div class="container-fluid" style="color:orange">
+                Copyright:© 2022  <span href="#"> HIRAD </span>
+            </div>
+        </div>
+    </footer>
+    <!--/.Footer-->
+    <!--  SCRIPTS  -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="~/MDB-Pro_4.19.1/js/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="~/MDB-Pro_4.19.1/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+
+    <script type="text/javascript" src="~/MDB-Pro_4.19.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+
+    <script type="text/javascript" src="~/MDB-Pro_4.19.1/js/mdb.min.js"></script>
+
+
+    <script>
+        $(document).ready(() => {
+            $("#form3").val('');
+            $("#form2").val('');
+            //$("#motemarkez").css("left", "0");
+            $("#motemarkez").animate({ left: "0" }, 100, 'linear');
+            $("#bank").animate({ right: "0" }, 100, 'linear');
+            $("#btn").css('transform', 'scale(1)');
+
+
+            //*********************************************
+            //$("body").animate({ left: "0" }, 2500);
+            //*********************************************
+            //new WOW().init();
+            //*********************************************
+            $("#nav_top").click(function () {
+                $('html, body').animate({
+                    scrollTop: $('#top').offset().top
+                }, 1000);
+            });
+            //*********************************************
+            $("#nav_ahdaf").click(function () {
+                $('html, body').animate({
+                    scrollTop: $('#ahdaf').offset().top
+                }, 1000);
+            });
+            //*********************************************
+            $("#nav_khata").click(function () {
+                $('html, body').animate({
+                    scrollTop: $('#khata').offset().top
+                }, 1000);
+            });
+            //*********************************************
+            $("#nav_vahed").click(function () {
+                $('html, body').animate({
+                    scrollTop: $('#vahed').offset().top
+                }, 1000);
+            });
+            //*********************************************
+            $("#nav_footer").click(function () {
+                $('html, body').animate({
+                    scrollTop: $('#footer').offset().top
+                }, 1000);
+            });
+            //*********************************************
+        });
+    </script>
+    <script>
+        function move_left() {
+            $("body").animate({ left: "-2000" });
+            $("form").submit();
+        }
+    </script>
+
+    @*cursor*@
+    <script>
+        const curso = document.querySelector(".cursor");
+        var timeout;
+
+        //cursor movement
+        document.addEventListener("mousemove", (e) => {
+            let x = e.pageX;
+            let y = e.pageY;
+
+            curso.style.top = y + 'px';
+            curso.style.left = x + 'px';
+            curso.style.display = 'block';
+
+
+            //stop animation
+            function mouseStopped() {
+                curso.style.display = 'none';
+            }
+
+            //hide animation
+            clearTimeout(timeout);
+            timeout = setTimeout(mouseStopped, 1000);
+
+
+        });
+
+
+        //stop animation off the screen
+        document.addEventListener("mouseout", () => {
+            cursor.style.display = 'none';
+        });
+
+    </script>
+    @*cursor*@
+
+
+
+
+
+</body>
+
+</html>

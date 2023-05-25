@@ -1,0 +1,109 @@
+﻿@model IEnumerable<eye_nobat.Models.peyvast>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+
+
+
+@if (TempData["peyvast"] != null)
+{
+    @if (TempData["peyvast"] == "no")
+    {
+        <script>
+            alert("پیوست موجود نمی باشد");
+        </script>
+    }
+}
+
+
+@*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Index*@
+<div class="card" id="index" style="transform:scale(1)">
+    <div class="card-header text-white bg-primary">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6" style="text-align:right">
+                    مدیریت پیوست ها
+                </div>
+                <div class="col-6" style="text-align:left">
+                    <a onclick="history.back()" class="btn btn-outline-danger">
+                        <span>انصراف و بازگشت</span>
+                    </a>
+                    
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <table id="dataTableExample" class="table">
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.val)
+                </th>
+                <th>
+                    نام و نام خانوادگی بیمار
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.name)
+                    </td>
+                    @if (item.val != null)
+                    {
+                        <td>
+                            <a asp-action="download_file" asp-route-id="@item.id">دانلود فایل</a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            ندارد
+                        </td>
+                    }
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.never.flname)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Index*@
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById("index").style.transform = "scale(1)";
+        function create() {
+            document.getElementById("index").style.transform = "scale(0)";
+            setTimeout(function () {
+                window.location.href = "/hos/Create";
+            }, 2000);
+        }
+        function edit() {
+            document.getElementById("index").style.transform = "scale(0)";
+            setTimeout(function () {
+                var param = document.getElementById("edit").title;
+                window.location.href = "/hos/Edit/" + param;
+            }, 2000);
+        }
+    </script>
+}

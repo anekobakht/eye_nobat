@@ -1,0 +1,79 @@
+﻿@model IEnumerable<never_vezarat.Models.user>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+
+<div class="table-responsive table-bordered">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-6">
+                    <a asp-action="Create" class="btn btn-success">
+                        <i class="material-icons">sentiment_very_satisfied</i>
+                        <span>اضافه کردن کاربر جدید</span>
+                    </a>
+                </div>
+                <div class="col-sm-6 text_header">
+                    مدیریت کاربران
+                </div>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.flname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.uname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.admin)
+                    </th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.flname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.uname)
+                        </td>
+                        @if (item.admin == true)
+                        {
+                            <td>
+                                <span>بله</span>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                <span>خیر</span>
+                            </td>
+                        }
+
+                        <td>
+                            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@item.user_id">
+                                <i class="material-icons">sentiment_neutral</i>
+                                ویرایش کاربر
+                            </a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.user_id">
+                                <i class="material-icons">sentiment_very_dissatisfied</i>
+                                حذف کاربر
+                            </a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

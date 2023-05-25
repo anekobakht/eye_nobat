@@ -1,0 +1,43 @@
+﻿@model eye_nobat.Models.koli
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>koli</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.flname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.flname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.moshahede)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.moshahede)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ejra)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ejra)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.etmam)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.etmam)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

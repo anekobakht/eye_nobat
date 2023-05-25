@@ -1,0 +1,30 @@
+﻿@model eye_nobat.Models.admin
+
+@{
+    ViewData["Title"] = "Create";
+
+
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+
+   
+
+}
+
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+
+@if (TempData["payam"]?.ToString() == "change_pass")
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        تغییر کلمه عبور انجام شد
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

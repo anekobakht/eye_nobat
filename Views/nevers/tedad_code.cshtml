@@ -1,0 +1,103 @@
+﻿@model IEnumerable<eye_nobat.Models.code>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+
+
+@*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& Index*@
+<div class="card" id="index" style="transform:scale(0)">
+    <div class="table-responsive table-bordered">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <a asp-action="" class="btn btn-primary">
+                            <i class="fa fa-file-excel-o" aria-hidden="true"></i>
+                            <span>انتقال به اکسل</span>
+                        </a>
+                        <a onclick="history.back()" class="btn btn-info">
+                            <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                            <span>انصراف و بازگشت</span>
+                        </a>
+                    </div>
+                    <div class="col-sm-6 text_header">
+                        مدیریت کد خطا ها
+                    </div>
+                </div>
+            </div>
+            <table id="dataTableExample" class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            @Html.DisplayNameFor(model => model.name)
+                        </th>
+                        <th>
+                            <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+                            @Html.DisplayNameFor(model => model.num)
+                        </th>
+                        <th>
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            @Html.DisplayNameFor(model => model.sms)
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="col-md-5">
+                                @Html.DisplayFor(modelItem => item.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.num)
+                            </td>
+                            <td>
+                                @if (item.sms.ToString() == "True")
+                                {
+                                    <input readonly type="checkbox" checked />
+                                }
+                                else
+                                {
+                                    {
+                                        <input readonly type="checkbox" />
+                                    }
+                                }
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>
+    @*&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& Index*@
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+
+        <script>
+            
+            $(document).ready(function () {
+                document.getElementById("index").style.transform = "scale(1)";
+               
+
+            });
+            function back() {
+                document.getElementById("index").style.transform = "scale(0)";
+                setTimeout(function () {
+                    window.location.href = "/nevers/tedad_paye";
+                }, 2000);
+            }
+        </script>
+    }

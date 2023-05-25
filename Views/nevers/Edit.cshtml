@@ -1,0 +1,134 @@
+﻿@model eye_nobat.Models.never
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+
+<div id="myNavRight" class="overlayRight">
+    <div class="overlay-contentRight">
+        <div class="card">
+            <div class="card-header text-white bg-primary">
+                ویرایش خطای ثبت شده
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="id" />
+                            <div class="form-group">
+                                <label class="control-label">عنوان بخش</label>
+                                <select asp-for="bakhsh_id" class="form-control" asp-items="ViewBag.bakhsh_id"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label  class="control-label">عنوان خطا</label>
+                                <select asp-for="code_id" class="form-control" asp-items="ViewBag.code_id"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="flname" class="control-label"></label>
+                                <input required asp-for="flname" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="codemeli" class="control-label"></label>
+                                <input required asp-for="codemeli" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="sen" class="control-label"></label>
+                                <input required asp-for="sen" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">جنسیت</label>
+                                <select asp-for="jensiat_id" class="form-control" asp-items="ViewBag.jensiat_id"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="date_morajee" class="control-label"></label>
+                                <input asp-for="date_morajee" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="saat_morajee" class="control-label"></label>
+                                <input asp-for="saat_morajee" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="date_voghu" class="control-label"></label>
+                                <input asp-for="date_voghu" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="saat_voghu" class="control-label"></label>
+                                <input asp-for="saat_voghu" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="tozihat" class="control-label"></label>
+                                <textarea cols="5" rows="5" asp-for="tozihat" class="form-control" ></textarea>
+                            </div>
+                        </div>
+                        <div>
+                            <hr />
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">
+                                    ویرایش اطلاعات
+                                </button>
+                                <a onclick="history.back()" class="btn btn-outline-primary">
+                                    <span>انصراف و بازگشت</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            <script>
+                document.getElementById("index").style.transform = "scale(1)";
+                function create() {
+                    document.getElementById("index").style.transform = "scale(0)";
+                    setTimeout(function () {
+                        window.location.href = "/hos/Create";
+                    }, 2000);
+                }
+                function edit() {
+                    document.getElementById("index").style.transform = "scale(0)";
+                    setTimeout(function () {
+                        var param = document.getElementById("edit").title;
+                        window.location.href = "/hos/Edit/" + param;
+                    }, 2000);
+                }
+
+                function back() {
+                    setTimeout(function () {
+                        window.location.href = "/nevers/Index";
+                    }, 2000);
+                }
+
+            </script>
+        }

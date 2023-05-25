@@ -1,0 +1,82 @@
+﻿@model eye_nobat.Models.peyvast
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+
+<div id="myNavRight" class="overlayRight">
+    <div class="overlay-contentRight">
+        <div class="card">
+            <div class="card-header text-white bg-success">
+                آیا مایل به حذف اطلاعات می باشید؟
+            </div>
+            <div class="card-body">
+                <div>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.name)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.name)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.val)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @if (Model.val != null)
+                            {
+                                <a asp-action="download_file" asp-route-id="@ViewBag.id">دانلود فایل</a>
+                            }
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.never.flname)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.never.flname)
+                        </dd>
+                    </dl>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="id" />
+                        <button type="submit" class="btn btn-danger text-white">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            حذف اطلاعات
+                        </button>
+                        <a onclick="history.back()" class="btn btn-info">
+                            <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+                            <span>انصراف و بازگشت</span>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.getElementById("index").style.transform = "scale(1)";
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            document.getElementById("myNavRight").style.width = "100%";
+        });
+
+
+        function back() {
+            document.getElementById("index").style.transform = "scale(0)";
+            setTimeout(function () {
+                window.location.href = "/admins/dashboard";
+            }, 2000);
+        }
+    </script>
+}

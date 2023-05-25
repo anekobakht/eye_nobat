@@ -1,0 +1,87 @@
+﻿@model eye_nobat.Models.peyvast
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+
+<div id="myNavTop" class="overlayTop">
+    <div class="overlay-contentTop">
+        <div class="card">
+            <div class="card-header text-white bg-primary">
+                جزئیات
+            </div>
+            <div class="card-body">
+
+                <div>
+                    <hr />
+                    <dl class="row">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.name)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.name)
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.val)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @if (Model.val != null)
+                            {
+                                <a asp-action="download_file" asp-route-id="@Model.id">دانلود فایل</a>
+                            }
+                        </dd>
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.never.flname)
+                        </dt>
+                        <dd class="col-sm-10">
+                            @Html.DisplayFor(model => model.never.flname)
+                        </dd>
+                    </dl>
+                </div>
+                <div>
+                    <hr />
+                    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model?.id">
+                        ویرایش اطلاعات
+                    </a>
+                    <a onclick="history.back()" class="btn btn-outline-primary">
+                        <span>انصراف و بازگشت</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById('myNavTop').style.height = '100%';
+        function create() {
+            document.getElementById("index").style.transform = "scale(0)";
+            setTimeout(function () {
+                window.location.href = "/hos/Create";
+            }, 2000);
+        }
+        function edit() {
+            document.getElementById("index").style.transform = "scale(0)";
+            setTimeout(function () {
+                var param = document.getElementById("edit").title;
+                window.location.href = "/hos/Edit/" + param;
+            }, 2000);
+        }
+
+        function back() {
+            document.getElementById('myNavTop').style.height = '0';
+            setTimeout(function () {
+                window.location.href = "/peyvasts/Index";
+            }, 2000);
+        }
+
+    </script>
+}

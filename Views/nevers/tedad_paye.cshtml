@@ -1,0 +1,144 @@
+﻿@model eye_nobat.Models.v_koli_detail
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+<div id="myNavRight" class="overlayRight">
+    <div class="overlay-contentRight">
+        <div class="card">
+            <div class="table-title text-white bg-success">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6">
+                            <a onclick="history.back()" class="btn btn-info">
+                                <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                                <span>انصراف و بازگشت</span>
+                            </a>
+                        </div>
+                        <div class="col-6" style="text-align: left;font-size: large;">
+                            آمار تعدادی از اطلاعات پایه
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <div class="card-body " style="color: black;">
+                <form asp-action="searched_hos">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header text-white">
+                                    <i class="fa fa-users text-white" aria-hidden="true"></i>
+                                    تعداد مدیران سیستم
+                                </div>
+                                <div class="card-body " style="color: black;">
+                                    @ViewBag.admin_count
+                                </div>
+                                <div class="card-footer" style=" align-content: center; display: grid; ">
+                                    <a class="btn " style=" background-image: linear-gradient(45deg, #0066ff, transparent); " asp-action="tedad_modiran">
+                                        جزئیات مدیران سیستم
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header text-white">
+                                    <i class="fa fa-university text-white" aria-hidden="true"></i>
+                                    تعداد دانشگاه ها
+                                </div>
+                                <div class="card-body " style="color: black;">
+                                    @ViewBag.uni_count
+                                </div>
+                                <div class="card-footer" style=" align-content: center; display: grid; ">
+                                    <a class="btn " style=" background-image: linear-gradient(45deg, #0066ff, transparent); " asp-action="tedad_uni">
+                                        جزئیات دانشگاه ها
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header text-white">
+                                    <i class="fa fa-hospital-o text-white" aria-hidden="true"></i>
+                                    تعداد بیمارستان ها
+                                </div>
+                                <div class="card-body " style="color: black;">
+                                    @ViewBag.hos_count
+                                </div>
+                                <div class="card-footer" style=" align-content: center; display: grid; ">
+                                    <a class="btn " style=" background-image: linear-gradient(45deg, #0066ff, transparent); " asp-action="tedad_hos">
+                                        جزئیات بیمارستان ها
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header text-white">
+                                    <i class="fa fa-heartbeat text-white" aria-hidden="true"></i>
+                                    تعداد کد های خطا
+                                </div>
+                                <div class="card-body " style="color: black;">
+                                    @ViewBag.code_count
+                                </div>
+                                <div class="card-footer" style=" align-content: center; display: grid; ">
+                                    <a class="btn " style=" background-image: linear-gradient(45deg, #0066ff, transparent); " asp-action="tedad_code">
+                                        جزئیات کد ها
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card">
+                                <div class="card-header text-white">
+                                    <i class="fa fa-pencil-square-o text-white" aria-hidden="true"></i>
+                                    تعداد خطاهای ثبت شده
+                                </div>
+                                <div class="card-body " style="color: black;">
+                                    @ViewBag.never_count
+                                </div>
+                                <div class="card-footer" style=" align-content: center; display: grid; ">
+                                    <a class="btn " style=" background-image: linear-gradient(45deg, #0066ff, transparent); " asp-action="tedad_never">
+                                        جزئیات خطاها
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById("myNavRight").style.width = "100%";
+        $("#date_morajee").inputmask("9999/99/99");
+        $("#saat_morajee").inputmask("99:99");
+        $("#date_voghu").inputmask("9999/99/99");
+        $("#saat_voghu").inputmask("99:99");
+
+        function back() {
+            document.getElementById("myNavRight").style.width = "0";
+            setTimeout(function () {
+                window.location.href = "/admins/dashboard";
+            }, 2000);
+        }
+
+
+    </script>
+}

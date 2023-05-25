@@ -1,0 +1,92 @@
+﻿@model never_vezarat.Models.user
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-header text-white bg-warning">
+        ویرایش کاربر
+    </div>
+    <div class="card-body">
+        <form asp-action="Edit">
+            <div class="row">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div hidden class="col-md-3">
+                    <div class="form-group">
+                        <input asp-for="user_id" class="form-control" />
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="flname" class="control-label"></label>
+                        <input asp-for="flname" class="form-control" />
+                        <span asp-validation-for="flname" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="username" class="control-label"></label>
+                        <input asp-for="username" class="form-control" />
+                        <span asp-validation-for="username" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="userpass" class="control-label"></label>
+                        <input type="password" asp-for="userpass" class="form-control" />
+                        <span asp-validation-for="userpass" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="admin" class="control-label"></label>
+                        <select style="width:100%" asp-for="admin">
+                            @if (TempData["admin"] != null)
+                            {
+                                if (TempData["admin"].ToString() == "True")
+                                {
+                                    <option selected value="True">بله</option>
+                                    <option value="False">خیر</option>
+                                }
+                                else
+                                {
+                                    <option value="True">بله</option>
+                                    <option selected value="False">خیر</option>
+                                }
+                            }
+                            else
+                            {
+                                <option value="True">بله</option>
+                                <option value="False">خیر</option>
+                            }
+
+                        </select>
+                        <span asp-validation-for="userpass" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-warning">
+                            <i class="material-icons">sentiment_satisfied</i>
+                            ویرایش کاربر
+                        </button>
+                        <a class="btn btn-info" asp-action="Index">
+                            <i class="material-icons">sentiment_dissatisfied</i>
+                            انصراف و بازگشت
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

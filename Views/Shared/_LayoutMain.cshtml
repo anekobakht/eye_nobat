@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en" dir="rtl">
+@inject IHttpContextAccessor Accessor
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+<head>
+
+    <meta charset="utf-8" />
+    <title>سامانه نوبت دهی</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="stylesheet" href="~/them_admin/assets/vendors/core/core.css">
+    <!-- endinject -->
+    <!-- preloader css -->
+    <link rel="stylesheet" href="~/them_admin/assets/css/preloader.min.css" type="text/css" />
+
+    <!-- Bootstrap Css -->
+    <link href="~/them_admin/assets/css/bootstrap-rtl.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="~/them_admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="~/them_admin/assets/css/app-rtl.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="~/them_admin/assets/vendors/flatpickr/flatpickr.min.css">
+    <!-- inject:css -->
+
+    <link rel="stylesheet" href="~/them_admin/assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <!-- endinject -->
+    <link rel="stylesheet" href="~/them_admin/style/css/style-rtl.min.css">
+    <!-- Layout styles -->
+    <!-- End layout styles -->
+    <link rel="stylesheet" href="~/them_admin/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.css">
+   @* <link rel="shortcut icon" href="~/them_admin/style/images/icon.png" />*@
+
+</head>
+<style type="text/css">
+    @@font-face {
+        font-family: "iransans";
+        src: url("~/them_admin/style/fonts/IRANSansWeb_Light.woff2") format("woff2");
+        src: url("~/them_admin/style/fonts/IRANSansWeb_Light.woff") format("woff");
+    }
+
+    *body {
+        font-family: iransans;
+    }
+</style>
+<body>
+
+    <!-- <body data-layout="horizontal"> -->
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+        <header id="page-topbar">
+            <div class="navbar-header">
+                <div class="d-flex">
+                    <!-- LOGO -->
+                    <div class="navbar-brand-box">
+                        <a href="index.php" class="logo logo-dark">
+                            <span class="logo-sm">
+                                <img src="~/them_admin/assets/images/icon1.png" alt="" height="24">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="~/them_admin/assets/images/icon1.png" alt="" height="24"> <span class="logo-txt">سامانه نوبت دهی</span>
+                            </span>
+                        </a>
+
+                        <a href="index.php" class="logo logo-light">
+                            <span class="logo-sm">
+                                <img src="~/them_admin/assets/images/icon1.png" alt="" height="24">
+                            </span>
+                            <span class="logo-lg">
+                                <img src="~/them_admin/assets/images/icon1.png" alt="" height="24"> <span class="logo-txt">سامانه نوبت دهی</span>
+                            </span>
+                        </a>
+                    </div>
+
+                    <button type="button" class="btn btn-sm px-3 font-size-16 header-item" id="vertical-menu-btn">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+
+                    <!-- App Search-->
+                    <form class="app-search d-none d-lg-block">
+                        <div class="position-relative">
+                            <input type="text" class="form-control" placeholder="جستجو ...">
+                            <button class="btn btn-primary" type="button"><i class="bx bx-search-alt align-middle"></i></button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="d-flex">
+
+                    <div class="dropdown d-inline-block d-lg-none ms-2">
+                        <button type="button" class="btn header-item" id="page-header-search-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i data-feather="search" class="icon-lg"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                             aria-labelledby="page-header-search-dropdown">
+
+                            <form class="p-3">
+                                <div class="form-group m-0">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="جستجو ..." aria-label="Search Result">
+                                        <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                    <div class="dropdown d-none d-sm-inline-block">
+                        <button type="button" class="btn header-item" id="mode-setting-btn">
+                            <i data-feather="moon" class="icon-lg layout-mode-dark"></i>
+                            <i data-feather="sun" class="icon-lg layout-mode-light"></i>
+                        </button>
+                    </div>
+
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item right-bar-toggle me-2">
+                            <i data-feather="settings" class="icon-lg"></i>
+                        </button>
+                    </div>
+
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown"
+                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img class="rounded-circle header-profile-user" src="~/them_admin/assets/images/users/avatar-1.jpg"
+                                 alt="Header Avatar">
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium">@Accessor.HttpContext.Session.GetString("flname")</span>
+                            <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-end">
+                            <!-- item-->
+                           @* <a class="dropdown-item" href="apps-contacts-profile.html"><i class="mdi mdi-face-profile font-size-16 align-middle me-1"></i>پروفایل</a>*@
+                            <a class="dropdown-item" href="#"><i class="bx bx-key font-size-16 align-middle me-1"></i>تغییر کلمه عبور</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-action="login" asp-controller="admins"><i class="bx bx-power-off font-size-16 align-middle me-1"></i>خروج</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="vertical-menu">
+
+            <div data-simplebar class="h-100">
+
+                <!--- Sidemenu -->
+                <div id="sidebar-menu">
+                    <!-- Left Menu Start -->
+                    <ul class="metismenu list-unstyled" id="side-menu">
+                        <li class="menu-title" data-key="t-menu">منو</li>
+
+                        <li>
+                            <a asp-action="check" asp-controller="kolis">
+                                <i data-feather="home"></i>
+                                <span data-key="t-dashboard">داشبورد</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="Index" asp-controller="kolis">
+                                <i data-feather="users"></i>
+                                <span data-key="t-dashboard">ثبت نوبت جدید</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="check" asp-controller="kolis">
+                                <i class="bx bx-search"></i>
+                                <span data-key="t-dashboard">گزارشات جدولی</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="nemudar_count_hos" asp-controller="kolis">
+                                <i class=" bx bx-bar-chart-alt"></i>
+                                <span data-key="t-dashboard">گزارشات نموداری</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a asp-action="login" asp-controller="admins">
+                                <i class="bx bx-power-off"></i>
+                                <span data-key="t-dashboard">خروج</span>
+
+                            </a>
+                        </li>
+
+
+
+                        @*<li>
+            <a href="javascript: void(0);" class="has-arrow">
+                <i class="bx bx-sitemap"></i>
+                <span data-key="t-multi-level">چند سطحی</span>
+            </a>
+            <ul class="sub-menu" aria-expanded="true">
+                <li><a href="javascript: void(0);" data-key="t-level-1-1">مراکز</a></li>
+                <li><a href="javascript: void(0);" data-key="t-level-1-1">تعدادی</a></li>
+                <li><a href="javascript: void(0);" data-key="t-level-1-1">نموداری</a></li>
+
+            </ul>
+        </li>*@
+
+                    </ul>
+
+
+                </div>
+                <!-- Sidebar -->
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <!-- ============================================================== -->
+        <div class="main-content">
+
+            <div class="page-content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+                <!-- container-fluid -->
+            </div>
+
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>
+
+                            </script> 
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                طراحی وتوسعه با <span  href="#" class="text-decoration-underline">NBT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+    <div class="right-bar">
+        <div data-simplebar class="h-100">
+            <div class="rightbar-title d-flex align-items-center bg-dark p-3">
+
+                <h5 class="m-0 me-2 text-white">سفارشی سازی تم</h5>
+
+                <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                    <i class="mdi mdi-close noti-icon"></i>
+                </a>
+            </div>
+
+            <!-- Settings -->
+            <hr class="m-0" />
+
+            <div class="p-4">
+                <h6 class="mb-3"></h6>
+                <div hidden class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="layout" id="layout-vertical" value="vertical">
+                    <label class="form-check-label" for="layout-vertical"></label>
+                </div>
+                <div hidden class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="layout" id="layout-horizontal" value="horizontal">
+                    <label class="form-check-label" for="layout-horizontal"></label>
+                </div>
+
+                <h6 class="mt-4 mb-3 pt-2">حالت چیدمان</h6>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="layout-mode" id="layout-mode-light" value="light">
+                    <label class="form-check-label" for="layout-mode-light">روشن</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="layout-mode" id="layout-mode-dark" value="dark">
+                    <label class="form-check-label" for="layout-mode-dark">تاریک</label>
+                </div>
+
+                <h6 class="mt-4 mb-3 pt-2">عرض طرح بندی</h6>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="layout-width" id="layout-width-fuild" value="fuild" onchange="document.body.setAttribute('data-layout-size', 'fluid')">
+                    <label class="form-check-label" for="layout-width-fuild">کامل</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="layout-width" id="layout-width-boxed" value="boxed" onchange="document.body.setAttribute('data-layout-size', 'boxed')">
+                    <label class="form-check-label" for="layout-width-boxed">باکس</label>
+                </div>
+
+                <h6 class="mt-4 mb-3 pt-2">طرح بندی</h6>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="layout-position" id="layout-position-fixed" value="fixed" onchange="document.body.setAttribute('data-layout-scrollable', 'false')">
+                    <label class="form-check-label" for="layout-position-fixed">ثابت</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="layout-position" id="layout-position-scrollable" value="scrollable" onchange="document.body.setAttribute('data-layout-scrollable', 'true')">
+                    <label class="form-check-label" for="layout-position-scrollable">اسکرول</label>
+                </div>
+
+                <h6 class="mt-4 mb-3 pt-2">رنگ تاب بار</h6>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="topbar-color" id="topbar-color-light" value="light" onchange="document.body.setAttribute('data-topbar', 'light')">
+                    <label class="form-check-label" for="topbar-color-light">روشن</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="topbar-color" id="topbar-color-dark" value="dark" onchange="document.body.setAttribute('data-topbar', 'dark')">
+                    <label class="form-check-label" for="topbar-color-dark">تاریک</label>
+                </div>
+
+                <h6 class="mt-4 mb-3 pt-2 sidebar-setting">اندازه سایدبار</h6>
+
+                <div class="form-check sidebar-setting">
+                    <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-default" value="default" onchange="document.body.setAttribute('data-sidebar-size', 'lg')">
+                    <label class="form-check-label" for="sidebar-size-default">پیش فرض</label>
+                </div>
+                <div class="form-check sidebar-setting">
+                    <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-compact" value="compact" onchange="document.body.setAttribute('data-sidebar-size', 'md')">
+                    <label class="form-check-label" for="sidebar-size-compact">فشرده</label>
+                </div>
+                <div class="form-check sidebar-setting">
+                    <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-small" value="small" onchange="document.body.setAttribute('data-sidebar-size', 'sm')">
+                    <label class="form-check-label" for="sidebar-size-small">کوچک</label>
+                </div>
+
+                <h6 class="mt-4 mb-3 pt-2 sidebar-setting">رنگ سایدبار</h6>
+
+                <div class="form-check sidebar-setting">
+                    <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-light" value="light" onchange="document.body.setAttribute('data-sidebar', 'light')">
+                    <label class="form-check-label" for="sidebar-color-light">روشن</label>
+                </div>
+                <div class="form-check sidebar-setting">
+                    <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-dark" value="dark" onchange="document.body.setAttribute('data-sidebar', 'dark')">
+                    <label class="form-check-label" for="sidebar-color-dark">تاریک</label>
+                </div>
+                <div class="form-check sidebar-setting">
+                    <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-brand" value="brand" onchange="document.body.setAttribute('data-sidebar', 'brand')">
+                    <label class="form-check-label" for="sidebar-color-brand">برند</label>
+                </div>
+
+                <h6 hidden class="mt-4 mb-3 pt-2">جهت نمایش</h6>
+
+                <div hidden class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-ltr" value="ltr">
+                    <label class="form-check-label" for="layout-direction-ltr">چپ چین</label>
+                </div>
+                <div hidden class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-rtl" value="rtl">
+                    <label class="form-check-label" for="layout-direction-rtl">راست چین</label>
+                </div>
+
+            </div>
+
+        </div> <!-- end slimscroll-menu-->
+    </div>
+
+    <!-- Right bar overlay-->
+    <div class="rightbar-overlay"></div>
+
+    <!-- JAVASCRIPT -->
+    <script src="~/them_admin/assets/libs/jquery/jquery.min.js"></script>
+    <script src="~/them_admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/them_admin/assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="~/them_admin/assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="~/them_admin/assets/libs/node-waves/waves.min.js"></script>
+
+    <!-- pace js -->
+    <script src="~/them_admin/assets/libs/pace-js/pace.min.js"></script>
+    <script src="~/them_admin/assets/vendors/flatpickr/flatpickr.min.js"></script>
+    <script src="~/them_admin/assets/vendors/apexcharts/apexcharts.min.js"></script>
+    <!-- endinject -->
+    <script src="~/them_admin/style/js/dashboard-light.js"></script>
+    <script src="~/them_admin/assets/vendors/feather-icons/feather.min.js"></script>
+    <script src="~/them_admin/style/js/template.js"></script>
+    <script src="~/input_mask/inputmask.min.js"></script>
+    <script src="~/input_mask/jquery.inputmask.min.js"></script>
+    <script src="~/them_admin/assets/js/app.js"></script>
+    <script src="~/them_admin/assets/vendors/datatables.net/jquery.dataTables.js"></script>
+    <script src="~/them_admin/assets/vendors/datatables.net-bs5/dataTables.bootstrap5.js"></script>
+    <script src="~/them_admin/style/js/data-table.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+
+    <script>
+        function dashboard() {
+            setTimeout(function () {
+                window.location.href = "/admins/dashboard";
+            }, 2000);
+        };
+
+        function paye_code() {
+            setTimeout(function () {
+                window.location.href = "/codes/Index";
+            }, 2000);
+        };
+
+        function paye_modiran() {
+            setTimeout(function () {
+                window.location.href = "/admins/Index";
+            }, 2000);
+        };
+    </script>
+
+
+</body>
+
+</html>

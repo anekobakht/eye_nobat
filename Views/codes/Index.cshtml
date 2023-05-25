@@ -1,0 +1,192 @@
+﻿@model IEnumerable<eye_nobat.Models.code>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+@*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% create*@
+<div id="myNavRight" class="overlayRight">
+    <div class="overlay-contentRight">
+        <div class="card">
+            <div class="card-header text-white bg-primary">
+                تعریف کد خطا
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <i class="bx bxs-zap"></i>
+                                <label class="control-label">نام خطا</label>
+                                <textarea name="name" cols="10" rows="5" class="form-control" placeholder="شرح خطا"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <i class="bx bxs-spreadsheet"></i>
+                                <label class="control-label">شماره خطا</label>
+                                <input name="num" class="form-control" placeholder="شماره خطا" />
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <i class="bx bx-mail-send"></i>
+                                <label class="control-label">آیا پیامک صورت پذیرد؟</label>
+                                <input type="checkbox" name="sms" />
+                            </div>
+                        </div>
+                        <div>
+                            <hr />
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary text-white">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    ثبت اطلاعات
+                                </button>
+                                <a onclick="history.back()" class="btn btn-outline-primary">
+                                    <i class="bx bxs-left-arrow"></i>
+                                    <span>انصراف و بازگشت</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% create*@
+@*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Index*@
+<div class="card" id="index" style="transform:scale(1)">
+    <div class="table-responsive table-bordered">
+        <div class="table-wrapper">
+            <div class="card-header text-white bg-primary">
+                <div class="row">
+                    <div class="col-sm-6 bg-primary text-white" style="text-align:right">
+                        کدهای خطا
+                    </div>
+                    <div class="col-sm-6 bg-primary text-white" style="text-align:left">
+                        <a onclick="exportTableToExcel('dataTableExample', 'خروجی فایل اکسل')" class="btn btn-outline-warning">انقال به اکسل</a>
+                    </div>
+                </div>
+            </div>
+            <table id="dataTableExample" class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            <i class="bx bxs-zap"></i>
+                            @Html.DisplayNameFor(model => model.name)
+                        </th>
+                        <th>
+                            <i class="bx bxs-spreadsheet"></i>
+                            @Html.DisplayNameFor(model => model.num)
+                        </th>
+                        <th>
+                            <i class="bx bx-mail-send"></i>
+                            @Html.DisplayNameFor(model => model.sms)
+                        </th>
+                        <th>
+                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                            عملیات
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.num)
+                            </td>
+                            <td>
+                                @if (item.sms == true)
+                                {
+                                    <input disabled type="checkbox" checked />
+                                }
+                                else
+                                {
+                                    <input disabled type="checkbox" />
+                                }
+
+                            </td>
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-link font-size-16 shadow-none py-0 text-muted dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bx bx-dots-horizontal-rounded"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" style="">
+                                        <li>
+                                            <a class="dropdown-item" asp-action="Edit" asp-route-id="@item.id">
+                                                <i class="bx bx-edit"></i>
+                                                ویرایش
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" asp-action="Details" asp-route-id="@item.id">
+                                                <i class="bx bx-zoom-in"></i>
+                                                جزئیات
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item" asp-action="Delete" asp-route-id="@item.id">
+                                                <i class="bx bxs-trash"></i>
+                                                حذف
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    @*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% export to excel*@
+    <script>
+        function exportTableToExcel(tableID, filename = '') {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableID);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+            // Specify file name
+            filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+            // Create download link element
+            downloadLink = document.createElement("a");
+
+            document.body.appendChild(downloadLink);
+
+            if (navigator.msSaveOrOpenBlob) {
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                // Setting the file name
+                downloadLink.download = filename;
+
+                //triggering the function
+                downloadLink.click();
+            }
+        }
+    </script>
+    @*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% export to excel*@
+}
+
+
+

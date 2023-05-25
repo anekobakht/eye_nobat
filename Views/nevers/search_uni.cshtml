@@ -1,0 +1,64 @@
+﻿@model eye_nobat.Models.v_koli_detail
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+<div id="myNavRight" class="overlayRight">
+    <div class="overlay-contentRight">
+        <div class="card">
+            <div class="card-header text-white bg-primary">
+                جستجوی خطای ثبت شده
+            </div>
+            <div class="card-body">
+                <form asp-action="searched_uni">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label  class="control-label">نام دانشگاه</label>
+                                <select name="uni_id" asp-for="uni_id" class="form-control" asp-items="ViewBag.uni_id">
+                                    <option value=null>همه موارد</option>
+                                </select>
+                            </div>
+                        </div>
+                       <div>
+                           <hr />
+                       </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                جستجوی خطاهای ثبت شده</button>
+                                <a onclick="history.back()" class="btn btn-outline-primary">
+                                    <span>انصراف و بازگشت</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById("myNavRight").style.width = "100%";
+        $("#date_morajee").inputmask("9999/99/99");
+        $("#saat_morajee").inputmask("99:99");
+        $("#date_voghu").inputmask("9999/99/99");
+        $("#saat_voghu").inputmask("99:99");
+        function back() {
+            document.getElementById("myNavRight").style.width = "0";
+            setTimeout(function () {
+                window.location.href = "/admins/dashboard";
+            }, 2000);
+        }
+    </script>
+}

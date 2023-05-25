@@ -1,0 +1,646 @@
+﻿<!DOCTYPE html>
+@inject IHttpContextAccessor Accessor
+<html lang="en">
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>سامانه جامع متمرکز هیراد</title>
+
+    <!-- Font Awesome -->
+    @* <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">*@
+    <!-- Bootstrap core CSS -->
+    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/MDB-Pro_4.19.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/MDB-Pro_4.19.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/MDB-Pro_4.19.1/css/addons/datatables-select2.min.css" rel="stylesheet">
+    <link href="~/MDB-Pro_4.19.1/css/addons/datatables2.min.css" rel="stylesheet">
+    <link href="~/MDB-Pro_4.19.1/css/addons/directives.min.css" rel="stylesheet">
+    <link href="~/MDB-Pro_4.19.1/css/addons/flag.min.css" rel="stylesheet">
+    <link href="~/MDB-Pro_4.19.1/css/addons/jquery.zmd.hierarchical-display.min.css" rel="stylesheet">
+    <link href="~/MDB-Pro_4.19.1/css/addons/rating.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="~/MDB-Pro_4.19.1/css/mdb.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="~/PersianDate/PersianDatePicker.min.css" />
+    <link href="~/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/chart.js/Chart.min.css" rel="stylesheet">
+    <link href="~/chart.js/Chart.bundle.min.js" rel="stylesheet">
+    <link rel="stylesheet" href="~/fontGoogle/StyleGoogle.css">
+    <link href="~/css/site.css" rel="stylesheet" />
+    @*<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">*@
+
+    <style>
+
+        .wrapper {
+            height: 400px;
+        }
+
+
+
+        html,
+        body,
+        header,
+        .jarallax {
+            height: 100%;
+        }
+
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);
+        }
+
+        h4 {
+            color: red !important;
+            text-shadow: 20px;
+        }
+
+
+        /*.btn:hover {
+            color: red !important;
+        }*/
+
+        /* label {
+            color: white !important;
+        }*/
+
+        dt {
+            color: skyblue !important;
+        }
+
+        /* th {
+            color: white !important;
+        }*/
+
+        .td_area {
+            width: 70vw !important;
+        }
+
+        input, select, textarea {
+            border-bottom: solid !important;
+            border-top-color: transparent !important;
+            border-left-color: transparent !important;
+            border-right-color: transparent !important;
+            font-size: small !important;
+            margin: 10px !important;
+            color: black !important;
+            background-color: transparent !important;
+            border-bottom-color: black !important;
+        }
+
+
+
+            input:focus {
+                border-bottom-color: red !important;
+                border-top-color: transparent !important;
+                border-left-color: transparent !important;
+                border-right-color: transparent !important;
+                outline: none !important;
+            }
+
+            select:focus {
+                border-bottom-color: red !important;
+                border-top-color: transparent !important;
+                border-left-color: transparent !important;
+                border-right-color: transparent !important;
+                outline: none !important;
+            }
+
+        h1 {
+            letter-spacing: 2px;
+        }
+
+        h5 {
+            letter-spacing: 2px;
+        }
+
+        .hr-light {
+            border-top: 3px solid #fff;
+            width: 80px;
+        }
+
+        footer.page-footer {
+            background-color: #6f7782 !important;
+        }
+
+        .collapse.navbar-collapse {
+            direction: rtl !important;
+        }
+
+        #hirad_logo {
+            width: 150px;
+            height: 150px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding-right: 50px;
+        }
+
+        .bg {
+            /* The image used */
+            background-image: url("../Img/loader.gif");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /*.a_menu {
+            color: white !important;
+        }*/
+
+        a_menu:hover {
+            background-color: transparent !important;
+        }
+
+        /*table sort*/
+        table.dataTable thead .sorting:after,
+        table.dataTable thead .sorting:before,
+        table.dataTable thead .sorting_asc:after,
+        table.dataTable thead .sorting_asc:before,
+        table.dataTable thead .sorting_asc_disabled:after,
+        table.dataTable thead .sorting_asc_disabled:before,
+        table.dataTable thead .sorting_desc:after,
+        table.dataTable thead .sorting_desc:before,
+        table.dataTable thead .sorting_desc_disabled:after,
+        table.dataTable thead .sorting_desc_disabled:before {
+            bottom: .5em;
+        }
+        /*table sort*/
+
+
+        option {
+            color: black !important;
+        }
+
+
+
+        /**********************************************************************   overlay/
+            /* The Overlay (background) */
+        .overlay {
+            /* Height & width depends on how you want to reveal the overlay (see JS below) */
+            height: 100%;
+            width: 0;
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            background-color: rgb(0,0,0); /* Black fallback color */
+            background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+            overflow-x: hidden; /* Disable horizontal scroll */
+            transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+        }
+
+        /* Position the content inside the overlay */
+        .overlay-content {
+            position: relative;
+            top: 25%; /* 25% from the top */
+            width: 100%; /* 100% width */
+            text-align: center; /* Centered text/links */
+            margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+        }
+
+        /* The navigation links inside the overlay */
+        .overlay a {
+            padding: 8px;
+            text-decoration: none;
+            font-size: 36px;
+            color: #818181;
+            display: block; /* Display block instead of inline */
+            transition: 0.3s; /* Transition effects on hover (color) */
+        }
+
+            /* When you mouse over the navigation links, change their color */
+            .overlay a:hover, .overlay a:focus {
+                color: #f1f1f1;
+            }
+
+        /* Position the close button (top right corner) */
+        .overlay .closebtn {
+            position: absolute;
+            top: 20px;
+            right: 45px;
+            font-size: 60px;
+        }
+
+        /* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+        @@media screen and (max-height: 450px) {
+            .overlay a {
+                font-size: 20px
+            }
+
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 15px;
+                right: 35px;
+            }
+        }
+        /**********************************************************************   overlay/
+
+
+
+
+
+
+        /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  table*/
+
+        .table-responsive {
+            display: block !important;
+            width: 100% !important;
+            overflow-x: auto !important;
+            -webkit-overflow-scrolling: touch !important;
+        }
+
+        .table-wrapper {
+            background: #fff !important;
+            padding: 20px 25px !important;
+            border-radius: 3px !important;
+            min-width: 1000px !important;
+            box-shadow: 0 1px 1px rgba(0,0,0,.05) !important;
+        }
+
+        .table-title {
+            background: #435d7d !important;
+            color: white !important;
+            padding: 16px 30px !important;
+            min-width: 100% !important;
+            margin: -20px -25px 10px !important;
+            border-radius: 3px 3px 0 0 !important;
+        }
+
+        .table {
+            width: 100% !important;
+            margin-bottom: 1rem !important;
+            color: #212529 !important;
+        }
+
+        /*$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$  table*/
+
+    </style>
+
+</head>
+
+<body style="position:relative">
+    <div id="top" class="view jarallax" @*data-jarallax='{"speed": 0.2}'*@ style="background-image: url('../../Img/bg_main.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+        <div class="cursor1"></div>
+        @if (ViewBag.er_auth == "1")
+        {
+            <script>
+                alert("نام کاربری یا کلمه عبور نادرست می باشد")
+            </script>
+        }
+
+        <!--Main Navigation-->
+        <header style="overflow:hidden">
+
+            <!--Navbar-->
+
+            <div class="container-fluid">
+                <!--Navbar-->
+                <nav id="nav" class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+                    <div class="container-fluid" style="background-color: #435d7d !important">
+                        <a class="navbar-brand" href="#">
+                            <div class="circle"></div>
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-7"
+                                aria-controls="navbarSupportedContent-7" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent-7">
+                            <ul class="navbar-nav mr-auto">
+
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                        @Accessor.HttpContext.Session.GetString("flname")
+                                    </a>
+                                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink2" style="text-align: -webkit-right;">
+                                        <span class="dropdown-item" asp-controller="unis" asp-action="Index">
+                                            <i class="fa fa-users" aria-hidden="true"></i>
+                                            @Accessor.HttpContext.Session.GetString("rule")
+                                        </span>
+                                        <a class="dropdown-item" asp-controller="admins" asp-action="change_pass">
+                                            <i class="fa fa-key" aria-hidden="true"></i>
+                                            تغییر کلمه عبور
+                                        </a>
+                                        <a class="dropdown-item" asp-controller="admins" asp-action="login">
+                                            <i class="fa fa-power-off" aria-hidden="true"></i>
+                                            خروج از برنامه
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    @if (Accessor.HttpContext.Session.GetString("rule") != "bakhsh")
+                                    {
+                                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                                            تعاریف پایه
+                                        </a>
+                                    }
+
+                                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink2" style="text-align: -webkit-right;">
+                                        @if (Accessor.HttpContext.Session.GetString("rule") == "admin")
+                                        {
+                                            <a class="dropdown-item" asp-controller="codes" asp-action="Index">
+                                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                                مدیریت خطا ها
+                                            </a>
+                                            <a class="dropdown-item" asp-controller="admins" asp-action="Index">
+                                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                                مدیران سیستم
+                                            </a>
+                                            <a class="dropdown-item" asp-controller="unis" asp-action="Index">
+                                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                                <i class="fa fa-university" aria-hidden="true"></i>
+                                                مدیریت دانشگاه ها
+                                            </a>
+                                        }
+                                        @if ((Accessor.HttpContext.Session.GetString("rule") == "uni") || (Accessor.HttpContext.Session.GetString("rule") == "admin"))
+                                        {
+                                            <a class="dropdown-item" asp-controller="hos" asp-action="Index">
+                                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                                <i class="fa fa-hospital-o" aria-hidden="true"></i>
+                                                مدیریت بیمارستان ها
+                                            </a>
+                                            <a class="dropdown-item" asp-controller="bakhshes" asp-action="Index">
+                                                <i class="fa fa-cogs" aria-hidden="true"></i>
+                                                <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                                                مدیریت بخش ها
+                                            </a>
+                                        }
+
+
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                        خطاهای ثبت شده
+                                    </a>
+                                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink2" style="text-align: -webkit-right;">
+                                        @if (Accessor.HttpContext.Session.GetString("rule") == "bakhsh")
+                                        {
+                                            <a class="dropdown-item" asp-controller="nevers" asp-action="Index">
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                ثبت خطای جدید
+                                            </a>
+                                        }
+                                        <a class="dropdown-item" asp-controller="nevers" asp-action="search">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                            جستجوی در خطاهای ثبت شده
+                                        </a>
+                                        @if (Accessor.HttpContext.Session.GetString("rule") == "admin")
+                                        {
+                                            <a class="dropdown-item" asp-controller="nevers" asp-action="search_uni">
+                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                                <i class="fa fa-university" aria-hidden="true"></i>
+                                                جستجوی خطا بر اساس نام دانشگاه
+                                            </a>
+                                        }
+                                        @if ((Accessor.HttpContext.Session.GetString("rule") == "admin") || (Accessor.HttpContext.Session.GetString("rule") == "uni"))
+                                        {
+                                            <a class="dropdown-item" asp-controller="nevers" asp-action="search_hos">
+                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                                <i class="fa fa-hospital-o" aria-hidden="true"></i>
+                                                جستجوی خطا بر اساس نام بیمارستان
+                                            </a>
+                                            <a class="dropdown-item" asp-controller="nevers" asp-action="search_bakhsh">
+                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                                <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                                                جستجوی خطا بر اساس نام بخش
+                                            </a>
+                                        }
+
+
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    @if (Accessor.HttpContext.Session.GetString("rule") != "bakhsh")
+                                    {
+                                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-tachometer pl-2" aria-hidden="true"></i>
+                                            داشبوردهای کلان تعدادی
+                                        </a>
+                                    }
+
+                                <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink2" style="text-align: -webkit-right;">
+                                    @if (Accessor.HttpContext.Session.GetString("rule") != "bakhsh")
+                                    {
+                                        <a class="dropdown-item" asp-controller="nevers" asp-action="tedad_paye">
+                                            <i class="fa fa-tachometer pl-2" aria-hidden="true"></i>
+                                            <i class="fa fa-cogs" aria-hidden="true"></i>
+                                            آمار تعدادی از اطلاعات پایه
+                                        </a>
+                                        <span class="dropdown-item" asp-controller="nevers" asp-action="Index">
+                                            <i class="fa fa-users" aria-hidden="true"></i>
+                                            مدیران سیستم
+                                        </span>
+                                        <span class="dropdown-item" asp-controller="nevers" asp-action="Index">
+                                            <i class="fa fa-university" aria-hidden="true"></i>
+                                            دانشگاه ها
+                                        </span>
+                                        <span class="dropdown-item" asp-controller="nevers" asp-action="Index">
+                                            <i class="fa fa-hospital-o" aria-hidden="true"></i>
+                                            بیمارستان ها
+                                        </span>
+                                        <span class="dropdown-item" asp-controller="nevers" asp-action="Index">
+                                            <i class="fa fa-heartbeat" aria-hidden="true"></i>
+                                            کدهای خطا
+                                        </span>
+                                        <span class="dropdown-item" asp-controller="nevers" asp-action="Index">
+                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                            خطاهای ثبت شده
+                                        </span>
+                                    }
+
+
+                                </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    @if (Accessor.HttpContext.Session.GetString("rule") != "bakhsh")
+                                    {
+                                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                            گزارشات نموداری
+                                        </a>
+                                    }
+
+                                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink2" style="text-align: -webkit-right;">
+                                        @if ((Accessor.HttpContext.Session.GetString("rule") == "admin"))
+                                        {
+                                            <a class="dropdown-item" asp-controller="nevers" asp-action="nemudar_never_uni">
+                                                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                خطاهای ثبت شده
+                                            </a>
+                                        }
+                                        @if ((Accessor.HttpContext.Session.GetString("rule") == "admin") || (Accessor.HttpContext.Session.GetString("rule") == "uni"))
+                                        {
+                                            <a class="dropdown-item" asp-controller="nevers" asp-action="nemudar_jensiat">
+                                                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                                                <i class="fa fa-venus" aria-hidden="true"></i>
+                                                بر اساس جنسیت
+                                            </a>
+                                        }
+                                    </div>
+                                </li>
+
+
+                                @*<li class="nav-item dropdown">
+                                    @if (Accessor.HttpContext.Session.GetString("rule") != "bakhsh")
+                                    {
+                                        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                                           aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                            گزارشات جدولی
+                                        </a>
+                                    }
+
+                                    <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink2" style="text-align: -webkit-right;">
+                                        @if ((Accessor.HttpContext.Session.GetString("rule") == "admin"))
+                                        {
+                                            <a class="dropdown-item" asp-controller="codes" asp-action="Index">
+                                                <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                                <i class="fa fa-university" aria-hidden="true"></i>
+                                                در مقیاس دانشگاه
+                                            </a>
+                                        }
+                                        @if ((Accessor.HttpContext.Session.GetString("rule") == "admin") || (Accessor.HttpContext.Session.GetString("rule") == "uni"))
+                                        {
+                                            <a class="dropdown-item" asp-controller="unis" asp-action="Index">
+                                                <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                                <i class="fa fa-hospital-o" aria-hidden="true"></i>
+                                                در مقیاس بیمارستان ها
+                                            </a>
+                                        }
+                                        <a class="dropdown-item" asp-controller="hos" asp-action="Index">
+                                            <i class="fa fa-list-alt" aria-hidden="true"></i>
+                                            <i class="fa fa-stethoscope" aria-hidden="true"></i>
+                                            در مقیاس بخش های بیمارستانی
+                                        </a>
+                                    </div>
+                                </li>*@
+
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!--Navbar END-->
+            </div>
+
+            <!--Navbar END-->
+            <!-- Intro Section -->
+            <div id="top" class="view jarallax" @*data-jarallax='{"speed": 0.2}'*@>
+                <div id="main" class="container-fluid h-100 justify-content-center align-items-center" style="overflow:auto">
+                    <div class="row " style="margin-top:100px">
+                        <div class="col-md-12">
+                            <main style="direction:rtl;text-align:right;overflow:auto" role="main" @*style="overflow:scroll"*@ class="pb-3">
+                                <div class="container-fluid">
+                                    @RenderBody()
+                                </div>
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </div>
+    @*jquery mask*@
+    <script type="text/javascript" src="~/input_mask/jquery.inputmask.min.js"></script>
+    <script type="text/javascript" src="~/jquery_mask/jquery.mask.min.js"></script>
+
+    @*jquery mask*@
+
+
+    <script type="text/javascript" src="~/MDB-Pro_4.19.1/js/jquery.min.js"></script>
+    @*persian Date*@
+    <script type="text/javascript" src="~/PersianDate/PersianDatePicker.min.js"></script>
+    @*persian Date*@
+
+
+
+    <script type="text/javascript" src="~/PersianDate/jquery.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="~/MDB-Pro_4.19.1/js/popper.min.js"></script>
+    @*datatable*@
+    <script type="text/javascript" src="~/MDB-Pro_4.19.1/js/addons/datatables.min.js"></script>
+    @*<script type="text/javascript" src="~/MDB-Pro_4.19.1/js/addons/datatables2.min.js"></script>*@
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="~/MDB-Pro_4.19.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="~/MDB-Pro_4.19.1/js/mdb.min.js"></script>
+    <script type="text/javascript" src="~/chart.js/Chart.min.js"></script>
+
+
+
+    @*jquery mask*@
+    <script type="text/javascript" src="~/input_mask/jquery.inputmask.min.js"></script>
+    @*jquery mask*@
+
+    @*<script>
+            $("#main").scroll(function () {
+                if (document.getElementById("main").scrollTop > 23) {
+                    $("#nav").attr('style', 'background-color: black !important');
+                }
+                else {
+                    $("#nav").attr('style', 'background-color: transparent !important');
+                }
+            });
+        </script>*@
+    @*table sort*@
+    @*<script>
+            $(document).ready(function () {
+                $('#dt').DataTable();
+                $('.dataTables_length').addClass('bs-select');
+                $('#avatar').animate({ left: '5px' }, 1500, 'linear');
+                $('#khoruj').animate({ right: '5px' }, 1500, 'linear');
+            });
+        </script>*@
+    @*table sort*@
+
+    @*cursor*@
+    @*<script>
+            const curso = document.querySelector(".cursor");
+            var timeout;
+
+            document.addEventListener("mousemove", (e) => {
+                let x = e.pageX;
+                let y = e.pageY;
+
+                curso.style.top = y + 'px';
+                curso.style.left = x + 'px';
+                curso.style.display = 'block';
+
+
+                function mouseStopped() {
+                    curso.style.display = 'none';
+                }
+
+                clearTimeout(timeout);
+                timeout = setTimeout(mouseStopped, 1000);
+
+
+            });
+
+
+            document.addEventListener("mouseout", () => {
+                cursor.style.display = 'none';
+            });
+
+        </script>*@
+    @*cursor*@
+
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+﻿@model eye_nobat.Models.bakhsh
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+
+<div id="myNavRight" class="overlayRight">
+    <div class="overlay-contentRight">
+        <div class="card">
+            <div class="card-header text-white bg-success">
+                ویرایش بخش
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <input type="hidden" asp-for="id" />
+                            <div class="form-group">
+                                <label asp-for="name" class="control-label"></label>
+                                <input asp-for="name" class="form-control" />
+                                <span asp-validation-for="name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="phone" class="control-label"></label>
+                                <input asp-for="phone" class="form-control" />
+                                <span asp-validation-for="phone" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="address" class="control-label"></label>
+                                <input asp-for="address" class="form-control" />
+                                <span asp-validation-for="address" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="flname" class="control-label"></label>
+                                <input asp-for="flname" class="form-control" />
+                                <span asp-validation-for="flname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="uname" class="control-label"></label>
+                                <input asp-for="uname" class="form-control" />
+                                <span asp-validation-for="uname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="upass" class="control-label"></label>
+                                <input type="password" asp-for="upass" class="form-control" />
+                                <span asp-validation-for="upass" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label asp-for="hos_id" class="control-label"></label>
+                                <select asp-for="hos_id" class="form-control" asp-items="ViewBag.hos_id"></select>
+                                <span asp-validation-for="hos_id" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-warning">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                    ویرایش اطلاعات
+                                </button>
+                                <a onclick="history.back()" class="btn btn-info">
+                                    <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+                                    <span>انصراف و بازگشت</span>
+                                </a>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.getElementById("index").style.transform = "scale(1)";
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            document.getElementById("myNavRight").style.width = "100%";
+        });
+
+
+        function back() {
+            document.getElementById("myNavRight").style.transform = "scale(0)";
+            setTimeout(function () {
+                window.location.href = "/bakhshes/Index";
+            }, 2000);
+        }
+    </script>
+}

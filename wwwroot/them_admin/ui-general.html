@@ -1,0 +1,1432 @@
+<!doctype html>
+<html lang="en" dir="rtl">
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Dashboard | پنل مدیریت فوداتکو</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <!-- plugin css -->
+    <link href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
+
+    <!-- preloader css -->
+    <link rel="stylesheet" href="assets/css/preloader.min.css" type="text/css" />
+
+    <!-- Bootstrap Css -->
+    <link href="assets/css/bootstrap-rtl.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="assets/css/app-rtl.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+</head>
+<style type="text/css">
+@font-face {
+    font-family: "iransans";
+    src: url("style/fonts/IRANSansWeb_Light.woff2") format("woff2");
+    src: url("style/fonts/IRANSansWeb_Light.woff") format("woff");
+}
+
+*body
+{
+	font-family:iransans;
+	
+}</style>
+<body>
+
+    <!-- <body data-layout="horizontal"> -->
+
+    <!-- Begin page -->
+    <div id="layout-wrapper">
+<header id="page-topbar">
+    <div class="navbar-header">
+        <div class="d-flex">
+            <!-- LOGO -->
+            <div class="navbar-brand-box">
+                <a href="index.php" class="logo logo-dark">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo-sm.svg" alt="" height="24">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/logo-sm.svg" alt="" height="24"> <span class="logo-txt">فوداتکو</span>
+                    </span>
+                </a>
+
+                <a href="index.php" class="logo logo-light">
+                    <span class="logo-sm">
+                        <img src="assets/images/logo-sm.svg" alt="" height="24">
+                    </span>
+                    <span class="logo-lg">
+                        <img src="assets/images/logo-sm.svg" alt="" height="24"> <span class="logo-txt">فوداتکو</span>
+                    </span>
+                </a>
+            </div>
+
+            <button type="button" class="btn btn-sm px-3 font-size-16 header-item" id="vertical-menu-btn">
+                <i class="fa fa-fw fa-bars"></i>
+            </button>
+
+            <!-- App Search-->
+            <form class="app-search d-none d-lg-block">
+                <div class="position-relative">
+                    <input type="text" class="form-control" placeholder="جستجو ...">
+                    <button class="btn btn-primary" type="button"><i class="bx bx-search-alt align-middle"></i></button>
+                </div>
+            </form>
+        </div>
+
+        <div class="d-flex">
+
+            <div class="dropdown d-inline-block d-lg-none ms-2">
+                <button type="button" class="btn header-item" id="page-header-search-dropdown"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i data-feather="search" class="icon-lg"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                    aria-labelledby="page-header-search-dropdown">
+        
+                    <form class="p-3">
+                        <div class="form-group m-0">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="جستجو ..." aria-label="Search Result">
+
+                                <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+
+            <div class="dropdown d-none d-sm-inline-block">
+                <button type="button" class="btn header-item" id="mode-setting-btn">
+                    <i data-feather="moon" class="icon-lg layout-mode-dark"></i>
+                    <i data-feather="sun" class="icon-lg layout-mode-light"></i>
+                </button>
+            </div>
+
+            <div class="dropdown d-none d-lg-inline-block ms-1">
+                <button type="button" class="btn header-item"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i data-feather="grid" class="icon-lg"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
+                    <div class="p-2">
+                        <div class="row g-0">
+                            <div class="col">
+                                <a class="dropdown-icon-item" href="#">
+                                    <img src="assets/images/brands/github.png" alt="Github">
+                                    <span>گیت هاب</span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a class="dropdown-icon-item" href="#">
+                                    <img src="assets/images/brands/bitbucket.png" alt="bitbucket">
+                                    <span>بیت باکت</span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a class="dropdown-icon-item" href="#">
+                                    <img src="assets/images/brands/dribbble.png" alt="dribbble">
+                                    <span>دریبل</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="row g-0">
+                            <div class="col">
+                                <a class="dropdown-icon-item" href="#">
+                                    <img src="assets/images/brands/dropbox.png" alt="dropbox">
+                                    <span>دراپ باکس</span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a class="dropdown-icon-item" href="#">
+                                    <img src="assets/images/brands/mail_chimp.png" alt="mail_chimp">
+                                    <span>میل چیمپ</span>
+                                </a>
+                            </div>
+                            <div class="col">
+                                <a class="dropdown-icon-item" href="#">
+                                    <img src="assets/images/brands/slack.png" alt="slack">
+                                    <span>اسلاک</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn header-item noti-icon position-relative" id="page-header-notifications-dropdown"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i data-feather="bell" class="icon-lg"></i>
+                    <span class="badge bg-danger rounded-pill">۴</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                    aria-labelledby="page-header-notifications-dropdown">
+                    <div class="p-3">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h6 class="m-0">اعلانات</h6>
+                            </div>
+                            <div class="col-auto">
+                                <a href="#!" class="small text-reset text-decoration-underline">۴ پیام خوانده نشده</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-simplebar style="max-height: 230px;">
+                        <a href="#!" class="text-reset notification-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <img src="assets/images/users/avatar-3.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1"></h6>
+                                    <div class="font-size-13 text-muted">
+                                        <p class="mb-1"></p>
+                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>۵۸ دقیقه پیش</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#!" class="text-reset notification-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 avatar-sm me-3">
+                                    <span class="avatar-title bg-primary rounded-circle font-size-16">
+                                        <i class="bx bx-cart"></i>
+                                    </span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">سفارش شما ثبت شد</h6>
+                                    <div class="font-size-13 text-muted">
+                                        <p class="mb-1"></p>
+                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>۴۸ دقیقه پیش</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#!" class="text-reset notification-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 avatar-sm me-3">
+                                    <span class="avatar-title bg-success rounded-circle font-size-16">
+                                        <i class="bx bx-badge-check"></i>
+                                    </span>
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">سفارش شما ارسال شد</h6>
+                                    <div class="font-size-13 text-muted">
+                                        <p class="mb-1"></p>
+                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>۳ دقیقه پیش</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+
+                        <a href="#!" class="text-reset notification-item">
+                            <div class="d-flex">
+                                <div class="flex-shrink-0 me-3">
+                                    <img src="assets/images/users/avatar-6.jpg" class="rounded-circle avatar-sm" alt="user-pic">
+                                </div>
+                                <div class="flex-grow-1">
+                                    <h6 class="mb-1">مختار مینائی</h6>
+                                    <div class="font-size-13 text-muted">
+                                        <p class="mb-1"></p>
+                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span>۴۵ دقیقه پیش</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="p-2 border-top d-grid">
+                        <a class="btn btn-sm btn-link font-size-14 text-center" href="javascript:void(0)">
+                            <i class="mdi mdi-arrow-right-circle me-1"></i> <span>مشاهده همه</span> 
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn header-item right-bar-toggle me-2">
+                    <i data-feather="settings" class="icon-lg"></i>
+                </button>
+            </div>
+
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn header-item bg-soft-light border-start border-end" id="page-header-user-dropdown"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle header-profile-user" src="assets/images/users/avatar-1.jpg"
+                        alt="Header Avatar">
+                    <span class="d-none d-xl-inline-block ms-1 fw-medium">ادمین</span>
+                    <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a class="dropdown-item" href="apps-contacts-profile.php"><i class="mdi mdi-face-profile font-size-16 align-middle me-1"></i>پروفایل</a>
+                    <a class="dropdown-item" href="auth-lock-screen.php"><i class="mdi mdi-lock font-size-16 align-middle me-1"></i>قفل صفحه</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="logout.php"><i class="mdi mdi-logout font-size-16 align-middle me-1"></i>خروج</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+<div class="vertical-menu">
+
+    <div data-simplebar class="h-100">
+
+        <!--- Sidemenu -->
+        <div id="sidebar-menu">
+            <!-- Left Menu Start -->
+            <ul class="metismenu list-unstyled" id="side-menu">
+                <li class="menu-title" data-key="t-menu">منو</li>
+
+                <li>
+                    <a href="index.html">
+                        <i data-feather="home"></i>
+                        <span data-key="t-dashboard">داشبورد</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="grid"></i>
+                        <span data-key="t-apps">اپلیکیشن</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="apps-calendar.html">
+                                <span data-key="t-calendar">تقویم</span>
+                            </a>
+                        </li>
+         <li>
+                            <a href="datepicker.html">
+                                <span data-key="t-chat">دیت پیکر شمسی</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="apps-chat.html">
+                                <span data-key="t-chat">چت</span>
+                            </a>
+                        </li>
+        
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow">
+                                <span data-key="t-email">ایمیل</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="apps-email-inbox.html" data-key="t-inbox">دریافتی</a></li>
+                                <li><a href="apps-email-read.html" data-key="t-read-email">خوانده شده</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow">
+                                <span data-key="t-invoices">صورتحساب</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="apps-invoices-list.html" data-key="t-invoice-list">لیست صورتحساب ها</a></li>
+                                <li><a href="apps-invoices-detail.html" data-key="t-invoice-detail">جزئیات صورتحساب</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow">
+                                <span data-key="t-contacts">ارتباطات</span>
+                            </a>
+                            <ul class="sub-menu" aria-expanded="false">
+                                <li><a href="apps-contacts-grid.html" data-key="t-user-grid">ناحیه کاربری</a></li>
+                                <li><a href="apps-contacts-list.html" data-key="t-user-list">لیست کاربران</a></li>
+                                <li><a href="apps-contacts-profile.html" data-key="t-profile">پروفایل</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="users"></i>
+                        <span data-key="t-authentication">احراز هویت</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="pages-login.html" data-key="t-login">لاگین</a></li>
+                        <li><a href="pages-register.html" data-key="t-register">ثبت نام</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="file-text"></i>
+                        <span data-key="t-pages">صفحات</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="pages-starter.html" data-key="t-starter-page">صفحه خالی</a></li>
+                        <li><a href="pages-maintenance.html" data-key="t-maintenance">صفحات ضروری</a></li>
+                       
+                        <li><a href="pages-timeline.html" data-key="t-timeline">تایم لاین</a></li>
+                        <li><a href="pages-faqs.html" data-key="t-faqs">سوالات</a></li>
+                        <li><a href="pages-pricing.html" data-key="t-pricing">قیمت ها</a></li>
+                        <li><a href="pages-404.html" data-key="t-error-404">صفحه ۴۰۴</a></li>
+                        <li><a href="pages-500.html" data-key="t-error-500">صفحه ۵۰۰</a></li>
+                    </ul>
+                </li>
+
+              
+
+                <li class="menu-title mt-2" data-key="t-components">المنت ها</li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="briefcase"></i>
+                        <span data-key="t-components">کامپوننت ها</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="ui-alerts.html" data-key="t-alerts">هشدارها</a></li>
+                        <li><a href="ui-buttons.html" data-key="t-buttons">دکمه ها</a></li>
+                        <li><a href="ui-cards.html" data-key="t-cards">کاردها</a></li>
+                        <li><a href="ui-carousel.html" data-key="t-carousel">اسلایدر</a></li>
+                        <li><a href="ui-dropdowns.html" data-key="t-dropdowns">دراپ داون</a></li>
+                        <li><a href="ui-grid.html" data-key="t-grid">بخش بندی</a></li>
+                        <li><a href="ui-images.html" data-key="t-images">تصاویر</a></li>
+                        <li><a href="ui-modals.html" data-key="t-modals">مدال ها</a></li>
+                        <li><a href="ui-offcanvas.html" data-key="t-offcanvas">کانونس</a></li>
+                        <li><a href="ui-progressbars.html" data-key="t-progress-bars">پراگرس بار</a></li>
+                        <li><a href="ui-tabs-accordions.html" data-key="t-tabs-accordions">تب ها</a></li>
+                        <li><a href="ui-typography.html" data-key="t-typography">تایپو گرافی</a></li>
+                        <li><a href="ui-video.html" data-key="t-video">ویدئو</a></li>
+                        <li><a href="ui-general.html" data-key="t-general">کلیات</a></li>
+                        <li><a href="ui-colors.html" data-key="t-colors">رنگ ها</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="gift"></i>
+                        <span data-key="t-ui-elements">المان ها</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        
+                        <li><a href="extended-sweet-alert.html" data-key="t-sweet-alert">سوئیت الرت2</a></li>
+                        
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);">
+                        <i data-feather="box"></i>
+                        <span class="badge rounded-pill bg-soft-danger text-danger float-end">۷</span>
+                        <span data-key="t-forms">فرم ها</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="form-elements.html" data-key="t-form-elements">فرم ساده</a></li>
+                        
+                        <li><a href="form-advanced.html" data-key="t-form-advanced">پلاگین های پیشرفته</a></li>
+                        <li><a href="form-editors.html" data-key="t-form-editors">ادیتور ها</a></li>
+                        <li><a href="form-uploads.html" data-key="t-form-upload">اپلود فایل</a></li>
+                       
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="sliders"></i>
+                        <span data-key="t-tables">جداول</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="tables-basic.html" data-key="t-basic-tables">جدول ساده</a></li>
+                        <li><a href="tables-datatable.html" data-key="t-data-tables">دیتا تیبل</a></li>
+                        <li><a href="tables-responsive.html" data-key="t-responsive-table">ریسپانسیو</a></li>
+                       
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="pie-chart"></i>
+                        <span data-key="t-charts">نمودارها</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+              
+                        <li><a href="charts-chartjs.html" data-key="t-chartjs-charts">چارت جی اس</a></li>
+                        <li><a href="charts-flot.html" data-key="t-knob-charts">فلوت</a></li>
+                        <li><a href="charts-sparkline.html" data-key="t-sparkline-charts">اسپارک لاین</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="cpu"></i>
+                        <span data-key="t-icons">ایکون ها</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="icons-boxicons.html" data-key="t-boxicons">باکس ایکون</a></li>
+                        <li><a href="icons-materialdesign.html" data-key="t-material-design">جزئیات طراحی</a></li>
+                        <li><a href="icons-dripicons.html" data-key="t-dripicons">دریپ ایکون</a></li>
+                        <li><a href="icons-fontawesome.html" data-key="t-font-awesome">فونت اوسام</a></li>
+                    </ul>
+                </li>
+
+               
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i data-feather="share-2"></i>
+                        <span data-key="t-multi-level">چند سطحی</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="javascript: void(0);" data-key="t-level-1-1">سطح 1-1-1</a></li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">سطح 1-1-2</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="javascript: void(0);" data-key="t-level-2-1">سطح 1-2-1</a></li>
+                                <li><a href="javascript: void(0);" data-key="t-level-2-2">سطح 1-2-2</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+
+            <div class="card sidebar-alert border-0 text-center mx-4 mb-0 mt-5">
+                <div class="card-body">
+                    <img src="assets/images/giftbox.png" alt="">
+                    <div class="mt-4">
+                        <h5 class="alertcard-title font-size-16">افر ویژه</h5>
+                        <p class="font-size-13">این ورژن دارای افر ویژه است</p>
+                        <a href="#!" class="btn btn-primary mt-2">ثبت سفارش</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar -->
+    </div>
+</div>
+<!-- Left Sidebar End -->
+
+        
+      
+
+        <!-- ============================================================== -->
+        <!-- Start right Content here -->
+        <div class="main-content">
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0 font-size-18">عمومی</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">کامپوننت ها</a></li>
+                                    <li class="breadcrumb-item active">عمومی</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+                <div class="row">
+                    
+                        <h1 class="page-title">مسیر راهنما</h1>
+                        <p class="lead">مکان صفحه فعلی را در یک سلسله مراتب ناوبری که به طور خودکار جداکننده ها را از طریق CSS اضافه می کند، نشان دهید. برای لیست کامل دستورالعمل ها و گزینه های دیگر <a href="https://getbootstrap.com/docs/5.1/components/breadcrumb/" target="_blank">مستندات رسمی بوت
+                استرپ</a> را بخوانید.</p>
+
+                        <hr>
+
+                        <h4 id="default">مثال پایه</h4>
+                        <div class="example">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="javascript:;">خانه</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:;">کتابخانه</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">داده</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <figure class="highlight" id="defaultBreadcrumbs">
+                            <pre><code class="language-markup"><script type="script/prism-html-markup"><nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">خانه</a></li>
+    <li class="breadcrumb-item"><a href="#">کتابخانه</a></li>
+    <li class="breadcrumb-item active" aria-current="page">داده</li>
+  </ol>
+</nav></script></code></pre>
+                            
+                        </figure>
+
+                        <hr>
+
+                        <h4 id="line">جدا کننده خطی</h4>
+                        <div class="example">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb breadcrumb-line">
+                                    <li class="breadcrumb-item"><a href="javascript:;">خانه</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:;">کتابخانه</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">داده</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <figure class="highlight" id="lineBreadcrumb">
+                            <pre><code class="language-markup"><script type="script/prism-html-markup"><nav aria-label="breadcrumb">
+  <ol class="breadcrumb breadcrumb-line">
+    <li class="breadcrumb-item"><a href="#">خانه</a></li>
+    <li class="breadcrumb-item"><a href="#">کتابخانه</a></li>
+    <li class="breadcrumb-item active" aria-current="page">داده</li>
+  </ol>
+</nav></script></code></pre>
+                           
+                        </figure>
+
+                        <hr>
+
+                        <h4 id="dot">جدا کننده نقطه ای</h4>
+                        <div class="example">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb breadcrumb-dot">
+                                    <li class="breadcrumb-item"><a href="javascript:;">خانه</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:;">کتابخانه</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">داده</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <figure class="highlight" id="dotBreadcrumb">
+                            <pre><code class="language-markup"><script type="script/prism-html-markup"><nav aria-label="breadcrumb">
+  <ol class="breadcrumb breadcrumb-dot">
+    <li class="breadcrumb-item"><a href="#">خانه</a></li>
+    <li class="breadcrumb-item"><a href="#">کتابخانه</a></li>
+    <li class="breadcrumb-item active" aria-current="page">داده</li>
+  </ol>
+</nav></script></code></pre>
+                           
+                        </figure>
+
+                        <hr>
+
+                        <h4 id="arrow">جدا کننده فلش</h4>
+                        <div class="example">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb breadcrumb-arrow">
+                                    <li class="breadcrumb-item"><a href="javascript:;">خانه</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript:;">کتابخانه</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">داده</li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <figure class="highlight" id="arrowBreadcrumb">
+                            <pre><code class="language-markup"><script type="script/prism-html-markup"><nav aria-label="breadcrumb">
+  <ol class="breadcrumb breadcrumb-arrwo">
+    <li class="breadcrumb-item"><a href="#">خانه</a></li>
+    <li class="breadcrumb-item"><a href="#">کتابخانه</a></li>
+    <li class="breadcrumb-item active" aria-current="page">داده</li>
+  </ol>
+</nav></script></code></pre>
+                            
+                        </figure>
+
+                    </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">نشان ها</h4>
+                                <p class="card-title-desc">برای تغییر ظاهر یک نشان، هر یک از کلاس های اصلاح کننده زیر را اضافه کنید.</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div>
+                                    <h5 class="font-size-14">پیش فرض</h5>
+                                    <div class="mt-1">
+                                        <span class="badge bg-primary">Primary</span>
+                                        <span class="badge bg-success">Success</span>
+                                        <span class="badge bg-info">Info</span>
+                                        <span class="badge bg-warning">Warning</span>
+                                        <span class="badge bg-danger">Danger</span>
+                                        <span class="badge bg-dark">Dark</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4">
+                                    <h5 class="font-size-14">نشان های نرم</h5>
+                                    <div class="mt-1">
+                                        <span class="badge badge-soft-primary">Primary</span>
+                                        <span class="badge badge-soft-success">Success</span>
+                                        <span class="badge badge-soft-info">Info</span>
+                                        <span class="badge badge-soft-warning">Warning</span>
+                                        <span class="badge badge-soft-danger">Danger</span>
+                                        <span class="badge badge-soft-dark">Dark</span>
+                                    </div>
+                                </div>
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">نشان های قرص</h4>
+                                <p class="card-title-desc">استفاده کنید از <code>.rounded-pill</code> لاس اصلاح کننده برای ساختن
+                                     نشان ها گردتر
+                                </p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div>
+                                    <h5 class="font-size-14">پیش فرض</h5>
+                                    <div class="mt-1">
+                                        <span class="badge rounded-pill bg-primary">Primary</span>
+                                        <span class="badge rounded-pill bg-success">Success</span>
+                                        <span class="badge rounded-pill bg-info">Info</span>
+                                        <span class="badge rounded-pill bg-warning">Warning</span>
+                                        <span class="badge rounded-pill bg-danger">Danger</span>
+                                        <span class="badge rounded-pill bg-dark">Dark</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4">
+                                    <h5 class="font-size-14">نشان های نرم</h5>
+                                    <div class="mt-1">
+                                        <span class="badge rounded-pill badge-soft-primary">Primary</span>
+                                        <span class="badge rounded-pill badge-soft-success">Success</span>
+                                        <span class="badge rounded-pill badge-soft-info">Info</span>
+                                        <span class="badge rounded-pill badge-soft-warning">Warning</span>
+                                        <span class="badge rounded-pill badge-soft-danger">Danger</span>
+                                        <span class="badge rounded-pill badge-soft-dark">Dark</span>
+                                    </div>
+                                </div>
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">نشان در دکمه ها</h4>
+                                <p class="card-title-desc">نشان ها را می توان به عنوان بخشی از پیوندها یا دکمه ها برای ارائه شمارنده استفاده کرد.</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button type="button" class="btn btn-primary">
+                                        اعلانات<span class="badge bg-success ms-1">4</span>
+                                    </button>
+                                    <button type="button" class="btn btn-success">
+                               پیام ها<span class="badge bg-danger ms-1">2</span>
+                                    </button>
+                                    <button type="button" class="btn btn-outline-secondary">
+                                        پیش نویس <span class="badge bg-success ms-1">2</span>
+                                    </button>
+                                </div>
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">نمونه های موقعیت نشان ها</h4>
+                                <p class="card-title-desc">نمونه ای از موقعیت نشان ها</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-3">
+                                    <button type="button" class="btn btn-primary position-relative">
+                                   ایمیل ها <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">+99 <span class="visually-hidden">پیام های خوانده نشده</span></span>
+                                    </button>
+
+
+                                    <button type="button" class="btn btn-light position-relative">
+                                    هشدارها <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1"><span class="visually-hidden">unread messages</span></span>
+                                    </button>
+
+                                    <button type="button" class="btn btn-primary position-relative p-0 avatar-sm rounded">
+                                        <span class="avatar-title bg-transparent">
+                                            <i class="bx bxs-envelope"></i>
+                                        </span>
+                                        <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-1"><span class="visually-hidden">پیام های خوانده نشده</span></span>
+                                    </button>
+
+                                    <button type="button" class="btn btn-light position-relative p-0 avatar-sm rounded-circle">
+                                        <span class="avatar-title bg-transparent text-reset">
+                                            <i class="bx bxs-bell"></i>
+                                        </span>
+                                    </button>
+
+                                    <button type="button" class="btn btn-light position-relative p-0 avatar-sm rounded-circle">
+                                        <span class="avatar-title bg-transparent text-reset">
+                                            <i class="bx bx-menu"></i>
+                                        </span>
+                                        <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-success p-1"><span class="visually-hidden">پیام های خوانده نشده</span></span>
+                                    </button>
+                                </div>
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">پاپ اور</h4>
+                                <p class="card-title-desc">چهار گزینه موجود است: تراز بالا، راست، پایین و چپ. هنگام استفاده از Bootstrap در RTL، دستورالعمل ها منعکس می شوند.</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-2">
+
+                                    <button type="button" class="btn btn-secondary waves-effect" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                  پاپ اور بالا
+                                    </button>
+
+                                    <button type="button" class="btn btn-secondary waves-effect" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                      راست
+                                    </button>
+
+                                    <button type="button" class="btn btn-secondary waves-effect" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                                    پائین
+                                    </button>
+
+                                    <button type="button" class="btn btn-secondary waves-effect" data-bs-toggle="popover" data-bs-placement="left" title="Popover Title" data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+                               چپ
+                                    </button>
+
+                                    <button type="button" class="btn btn-success waves-effect waves-light" data-bs-toggle="popover" data-bs-trigger="focus" title="Dismissible popover" data-bs-content="And here's some amazing content. It's very engaging. Right?">غیر فعال</button>
+                                </div>
+
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">تولتیپ</h4>
+                                <p class="card-title-desc">Hover over the links below to see tooltips:</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap gap-2">
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+                                       بالا
+                                    </button>
+
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
+                                      راست
+                                    </button>
+
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+                                       پائین
+                                    </button>
+
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
+                                        چپ
+                                    </button>
+
+                                </div>
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">نمونه هایی از صفحه بندی</h4>
+                                <p class="card-title-desc">پیوندهای صفحه بندی نشان می دهد که یک سری محتوای مرتبط در چندین صفحه وجود دارد.</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination">
+                                        <li class="page-item"><a class="page-link" href="#">قبلی</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">بعدی</a></li>
+                                    </ul>
+                                </nav>
+
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination mb-0">
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Previous">
+                                                <i class="mdi mdi-chevron-left"></i>
+                                            </a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#" aria-label="Next">
+                                                <i class="mdi mdi-chevron-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="font-size-14">صفحه بندی غیر فعال و فعال است</h5>
+                                <p class="card-title-desc">پیوندهای صفحه بندی قابل تنظیم هستند
+                                     شرایط مختلف استفاده کنید <code>.disabled</code> برای پیوندهایی که ظاهر می شوند
+                                     غیر قابل کلیک و <code>.active</code> به
+                                     صفحه فعلی را نشان می دهد.</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <nav aria-label="...">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1">قبلی</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item active">
+                                            <a class="page-link" href="#">2 <span class="sr-only">(فعلی)</span></a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">بعدی</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+
+                                <nav aria-label="...">
+                                    <ul class="pagination mb-0">
+                                        <li class="page-item disabled">
+                                            <span class="page-link"><i class="mdi mdi-chevron-left"></i></span>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item active">
+                                            <span class="page-link">
+                                                2
+                                                <span class="sr-only">(فعلی)</span>
+                                            </span>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#"><i class="mdi mdi-chevron-right"></i></a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="font-size-14">سایز صفحه بندی</h5>
+                                <p class="card-title-desc">صفحه بندی بزرگتر یا کوچکتر را دوست دارید؟ اضافه کردن <code>.pagination-lg</code> یا<code>.pagination-sm</code> برای اضافی
+                                     اندازه ها.</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <nav aria-label="...">
+                                    <ul class="pagination pagination-lg">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1">قبلی</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">بعدی</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+
+                                <nav aria-label="...">
+                                    <ul class="pagination pagination-sm mb-0">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1">قبلی</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">بعدی</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+
+
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="font-size-14">تراز صفحه بندی</h5>
+                                <p class="card-title-desc">تراز صفحه بندی را تغییر دهید
+                                     قطعات با ابزارهای فلکس باکس.</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-center">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1">قبلی</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">بعدی</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+
+                                <nav aria-label="Page navigation example">
+                                    <ul class="pagination justify-content-end mb-0">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1">قبلی</a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">بعدی</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">اسپینر مرزی</h4>
+                                <p class="card-title-desc">از اسپینرهای حاشیه برای نشانگر بارگیری سبک استفاده کنید.</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div>
+                                    <div class="spinner-border text-primary m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-border text-secondary m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-border text-success m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-border text-info m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-border text-warning m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-border text-danger m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-border text-dark m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                </div>
+
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">اسپینر در حال رشد</h4>
+                                <p class="card-title-desc">اگر به اسپینر مرزی علاقه ندارید، به اسپینر رشد بروید. در حالی که از نظر فنی نمی چرخد، به طور مکرر رشد می کند!</p>
+                            </div><!-- end card header -->
+
+                            <div class="card-body">
+                                <div>
+                                    <div class="spinner-grow text-primary m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-grow text-secondary m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-grow text-success m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-grow text-info m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-grow text-warning m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-grow text-danger m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                    <div class="spinner-grow text-dark m-1" role="status">
+                                        <span class="sr-only">در حال بارگذاری...</span>
+                                    </div>
+                                </div>
+
+                            </div><!-- end card-body -->
+                        </div><!-- end card -->
+                    </div><!-- end col -->
+                </div><!-- end row -->
+                <div class="row">
+                   
+                        <h1 class="page-title">صفحه بندی</h1>
+                        <p class="lead">برای نشان دادن یک سری محتوای مرتبط در چندین صفحه وجود دارد. برای لیست کامل دستورالعمل ها و گزینه های دیگر <a href="https://getbootstrap.com/docs/5.1/components/pagination/" target="_blank">مستندات
+                رسمی بوت استرپ</a> را بخوانید.</p>
+
+                        <hr>
+
+                        <h4 id="default">مثال پایه</h4>
+                        <p class="mb-3">صفحه بندی با عناصر لیست HTML ساخته شده است تا خوانندگان صفحه بتوانند تعداد پیوندهای موجود را اعلام کنند.</p>
+                        <div class="example">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination mb-0">
+                                    <li class="page-item"><a class="page-link" href="javascript:;"><i
+                        data-feather="chevron-right"></i></a></li>
+                                    <li class="page-item active"><a class="page-link" href="javascript:;">1</a></li>
+                                    <li class="page-item disabled"><a class="page-link" href="javascript:;">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:;"><i data-feather="chevron-left"></i></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <figure class="highlight" id="Default">
+                            <pre><code class="language-markup"><script type="script/prism-html-markup"><nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#"><i data-feather="chevron-right"></i></a></li>
+    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+    <li class="page-item disabled"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#"><i data-feather="chevron-left"></i></a></li>
+  </ul>
+</nav></script></code></pre>
+                            <button type="button" class="btn btn-clipboard" data-clipboard-target="#Default">کپی</button>
+                        </figure>
+
+                        <hr>
+
+                        <h4 id="sizing">سایزها</h4>
+                        <p class="mb-3">برای اندازه های بیشتر، <code>.pagination-lg</code> یا <code>.pagination-sm</code> را اضافه کنید.
+                        </p>
+                        <div class="example">
+                            <ul class="pagination mb-0 pagination-lg">
+                                <li class="page-item active" aria-current="page">
+                                    <span class="page-link">
+                    1
+                    <span class="visually-hidden">(فعلی)</span>
+                                    </span>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="javascript:;">2</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
+                            </ul>
+                        </div>
+                        <figure class="highlight" id="Sizing">
+                            <pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination pagination-lg">
+  ...
+</ul></script></code></pre>
+                            <button type="button" class="btn btn-clipboard" data-clipboard-target="#Sizing">کپی</button>
+                        </figure>
+                        <div class="example">
+                            <ul class="pagination mb-0 pagination-sm">
+                                <li class="page-item active" aria-current="page">
+                                    <span class="page-link">
+                    1
+                    <span class="visually-hidden">(فعلی)</span>
+                                    </span>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="javascript:;">2</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
+                            </ul>
+                        </div>
+                        <figure class="highlight" id="sizingSm">
+                            <pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination pagination-sm">
+  ...
+</ul></script></code></pre>
+                            <button type="button" class="btn btn-clipboard" data-clipboard-target="#sizingSm">کپی</button>
+                        </figure>
+
+                        <hr>
+
+                        <h4 id="alignment">هم ترازی</h4>
+                        <p class="mb-3">تراز اجزای صفحه بندی را با ابزارهای فلکس باکس تغییر دهید.</p>
+                        <div class="example">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination mb-0 justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="javascript:;" tabindex="-1" aria-disabled="true">قبلی</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript:;">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:;">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="javascript:;">بعدی</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <figure class="highlight" id="Alignment">
+                            <pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination justify-content-center">
+  ...
+</ul></script></code></pre>
+                            <button type="button" class="btn btn-clipboard" data-clipboard-target="#Alignment">کپی</button>
+                        </figure>
+                        <div class="example">
+                            <ul class="pagination mb-0 justify-content-end">
+                                <li class="page-item">
+                                    <a class="page-link" href="javascript:;" tabindex="-1" aria-disabled="true">قبلی</a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="javascript:;">1</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript:;">2</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="javascript:;">بعدی</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <figure class="highlight" id="alignmentEnd">
+                            <pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination justify-content-end">
+  ...
+</ul></script></code></pre>
+                            <button type="button" class="btn btn-clipboard" data-clipboard-target="#alignmentEnd">کپی</button>
+                        </figure>
+
+                        <hr>
+
+                        <h4 id="seperated">جدا کننده</h4>
+                        <p class="mb-3">افزودن کلاس <code>.pagination-separated</code></p>
+                        <div class="example">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination mb-0 pagination-separated">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="javascript:;" tabindex="-1" aria-disabled="true">قبلی</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript:;">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:;">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="javascript:;">بعدی</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <figure class="highlight" id="Seperated">
+                            <pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination pagination-separated">
+  ...
+</ul></script></code></pre>
+                            <button type="button" class="btn btn-clipboard" data-clipboard-target="#Seperated">کپی</button>
+                        </figure>
+
+                        <hr>
+
+                        <h4 id="rounded">گرد شده</h4>
+                        <p class="mb-3">افزودن کلاس <code>.pagination-rounded</code></p>
+                        <div class="example">
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination mb-0 pagination-rounded">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="javascript:;" tabindex="-1" aria-disabled="true">قبلی</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="javascript:;">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:;">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="javascript:;">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="javascript:;">بعدی</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <figure class="highlight" id="Rounded">
+                            <pre><code class="language-markup"><script type="script/prism-html-markup"><ul class="pagination pagination-rounded">
+  ...
+</ul></script></code></pre>
+                           
+                        </figure>
+
+                    </div>
+            </div> <!-- container-fluid -->
+        </div>
+        <!-- End Page-content -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>
+                             ۲۰۲۲  
+                            </script> © فوداتکو.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                طراحی وتوسعه با <a href="#!" class="text-decoration-underline">فوداتکو</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+
+    </div>
+    <!-- END layout-wrapper -->
+
+<div class="right-bar">
+    <div data-simplebar class="h-100">
+        <div class="rightbar-title d-flex align-items-center bg-dark p-3">
+
+            <h5 class="m-0 me-2 text-white">سفارشی سازی تم</h5>
+
+            <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
+                <i class="mdi mdi-close noti-icon"></i>
+            </a>
+        </div>
+
+        <!-- Settings -->
+        <hr class="m-0" />
+
+        <div class="p-4">
+            <h6 class="mb-3">چیدمان</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="layout" id="layout-vertical" value="vertical">
+                <label class="form-check-label" for="layout-vertical">عمومی</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="layout" id="layout-horizontal" value="horizontal">
+                <label class="form-check-label" for="layout-horizontal">افقی</label>
+            </div>
+
+            <h6 class="mt-4 mb-3 pt-2">حالت چیدمان</h6>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="layout-mode" id="layout-mode-light" value="light">
+                <label class="form-check-label" for="layout-mode-light">روشن</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="layout-mode" id="layout-mode-dark" value="dark">
+                <label class="form-check-label" for="layout-mode-dark">تاریک</label>
+            </div>
+
+            <h6 class="mt-4 mb-3 pt-2">عرض طرح بندی</h6>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="layout-width" id="layout-width-fuild" value="fuild" onchange="document.body.setAttribute('data-layout-size', 'fluid')">
+                <label class="form-check-label" for="layout-width-fuild">کامل</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="layout-width" id="layout-width-boxed" value="boxed" onchange="document.body.setAttribute('data-layout-size', 'boxed')">
+                <label class="form-check-label" for="layout-width-boxed">باکس</label>
+            </div>
+
+            <h6 class="mt-4 mb-3 pt-2">طرح بندی</h6>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="layout-position" id="layout-position-fixed" value="fixed" onchange="document.body.setAttribute('data-layout-scrollable', 'false')">
+                <label class="form-check-label" for="layout-position-fixed">ثابت</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="layout-position" id="layout-position-scrollable" value="scrollable" onchange="document.body.setAttribute('data-layout-scrollable', 'true')">
+                <label class="form-check-label" for="layout-position-scrollable">اسکرول</label>
+            </div>
+
+            <h6 class="mt-4 mb-3 pt-2">رنگ تاب بار</h6>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="topbar-color" id="topbar-color-light" value="light" onchange="document.body.setAttribute('data-topbar', 'light')">
+                <label class="form-check-label" for="topbar-color-light">روشن</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="topbar-color" id="topbar-color-dark" value="dark" onchange="document.body.setAttribute('data-topbar', 'dark')">
+                <label class="form-check-label" for="topbar-color-dark">تاریک</label>
+            </div>
+
+            <h6 class="mt-4 mb-3 pt-2 sidebar-setting">اندازه سایدبار</h6>
+
+            <div class="form-check sidebar-setting">
+                <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-default" value="default" onchange="document.body.setAttribute('data-sidebar-size', 'lg')">
+                <label class="form-check-label" for="sidebar-size-default">پیش فرض</label>
+            </div>
+            <div class="form-check sidebar-setting">
+                <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-compact" value="compact" onchange="document.body.setAttribute('data-sidebar-size', 'md')">
+                <label class="form-check-label" for="sidebar-size-compact">فشرده</label>
+            </div>
+            <div class="form-check sidebar-setting">
+                <input class="form-check-input" type="radio" name="sidebar-size" id="sidebar-size-small" value="small" onchange="document.body.setAttribute('data-sidebar-size', 'sm')">
+                <label class="form-check-label" for="sidebar-size-small">کوچک</label>
+            </div>
+
+            <h6 class="mt-4 mb-3 pt-2 sidebar-setting">رنگ سایدبار</h6>
+
+            <div class="form-check sidebar-setting">
+                <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-light" value="light" onchange="document.body.setAttribute('data-sidebar', 'light')">
+                <label class="form-check-label" for="sidebar-color-light">روشن</label>
+            </div>
+            <div class="form-check sidebar-setting">
+                <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-dark" value="dark" onchange="document.body.setAttribute('data-sidebar', 'dark')">
+                <label class="form-check-label" for="sidebar-color-dark">تاریک</label>
+            </div>
+            <div class="form-check sidebar-setting">
+                <input class="form-check-input" type="radio" name="sidebar-color" id="sidebar-color-brand" value="brand" onchange="document.body.setAttribute('data-sidebar', 'brand')">
+                <label class="form-check-label" for="sidebar-color-brand">برند</label>
+            </div>
+
+            <h6 class="mt-4 mb-3 pt-2">جهت نمایش</h6>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-ltr" value="ltr">
+                <label class="form-check-label" for="layout-direction-ltr">چپ چین</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="layout-direction" id="layout-direction-rtl" value="rtl">
+                <label class="form-check-label" for="layout-direction-rtl">راست چین</label>
+            </div>
+
+        </div>
+
+    </div> <!-- end slimscroll-menu-->
+</div>
+
+<!-- Right bar overlay-->
+<div class="rightbar-overlay"></div>
+
+    <!-- JAVASCRIPT -->
+    <script src="assets/libs/jquery/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="assets/libs/feather-icons/feather.min.js"></script>
+    <!-- pace js -->
+    <script src="assets/libs/pace-js/pace.min.js"></script>
+
+    <!-- apexcharts -->
+    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+
+    <!-- Plugins js-->
+    <script src="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- dashboard init -->
+    <script src="assets/js/pages/dashboard.init.js"></script>
+
+    <script src="assets/js/app.js"></script>
+
+</body>
+
+</html>

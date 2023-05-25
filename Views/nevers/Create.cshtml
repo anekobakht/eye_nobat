@@ -1,0 +1,148 @@
+﻿@model eye_nobat.Models.never
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+<div id="myNavRight" class="overlayRight">
+    <div class="overlay-contentRight">
+        <div class="card">
+            <div class="card-header text-white bg-success">
+                ثبت خطای جدید
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="form-group">
+                                <label asp-for="bakhsh_id" class="control-label"></label>
+                                <select asp-for="bakhsh_id" class="form-control" asp-items="ViewBag.bakhsh_id"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="code_id" class="control-label"></label>
+                                <select asp-for="code_id" class="form-control" asp-items="ViewBag.code_id"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="flname" class="control-label"></label>
+                                <input required asp-for="flname" class="form-control" />
+                                <span asp-validation-for="flname" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="codemeli" class="control-label"></label>
+                                <input required type="number" maxlength="10" asp-for="codemeli" class="form-control" />
+                                <span asp-validation-for="codemeli" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="sen" class="control-label"></label>
+                                <input maxlength="3" required type="number" asp-for="sen" class="form-control" />
+                                <span asp-validation-for="sen" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="jensiat_id" class="control-label"></label>
+                                <select asp-for="jensiat_id" class="form-control" asp-items="ViewBag.jensiat_id"></select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="date_morajee" class="control-label"></label>
+                                <input required id="date_morajee" asp-for="date_morajee" class="form-control" />
+                                <span asp-validation-for="date_morajee" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="saat_morajee" class="control-label"></label>
+                                <input required id="saat_morajee" asp-for="saat_morajee" class="form-control" />
+                                <span asp-validation-for="saat_morajee" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="date_voghu" class="control-label"></label>
+                                <input required id="date_voghu" asp-for="date_voghu" class="form-control" />
+                                <span asp-validation-for="date_voghu" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="saat_voghu" class="control-label"></label>
+                                <input required id="saat_voghu" asp-for="saat_voghu" class="form-control" />
+                                <span asp-validation-for="saat_voghu" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="tozihat" class="control-label"></label>
+                                <textarea asp-for="tozihat" class="form-control" cols="4" rows="4"></textarea>
+                                <span asp-validation-for="tozihat" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-success text-white">
+                                    <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                                    ثبت اطلاعات
+                                </button>
+                                <a onclick="history.back()" class="btn btn-info">
+                                    <i class="fa fa-arrow-circle-o-left" aria-hidden="true"></i>
+                                    <span>انصراف و بازگشت</span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        @section Scripts {
+            @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+            <script>
+                $("#date_morajee").inputmask("9999/99/99");
+                $("#saat_morajee").inputmask("99:99");
+                $("#date_voghu").inputmask("9999/99/99");
+                $("#saat_voghu").inputmask("99:99");
+
+            </script>
+            <script>
+                document.getElementById("index").style.transform = "scale(1)";
+                function create() {
+                    document.getElementById("index").style.transform = "scale(0)";
+                    setTimeout(function () {
+                        window.location.href = "/hos/Create";
+                    }, 2000);
+                }
+                function edit() {
+                    document.getElementById("index").style.transform = "scale(0)";
+                    setTimeout(function () {
+                        var param = document.getElementById("edit").title;
+                        window.location.href = "/hos/Edit/" + param;
+                    }, 2000);
+                }
+
+                function back() {
+                    document.getElementById("index").style.transform = "scale(0)";
+                    setTimeout(function () {
+                        window.location.href = "/nevers/Index";
+                    }, 2000);
+                }
+
+            </script>
+        }

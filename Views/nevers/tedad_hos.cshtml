@@ -1,0 +1,110 @@
+﻿@model IEnumerable<eye_nobat.Models.v_nemudar_never_hos>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<environment names="Development">
+    <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+</environment>
+
+<div class="card" id="index" style="transform:scale(0)">
+    <div class="table-responsive table-bordered">
+        <div class="table-wrapper">
+            <div class="card-header bg-primary">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <span class="text-white">تعداد خطاهای ثبت شده بر اساس بیمارستان</span>
+                    </div>
+                    <div class="col-sm-6" style="text-align:left">
+                        <a onclick="exportTableToExcel('dataTableExample', 'خروجی فایل اکسل')" class="btn btn-outline-warning">انقال به اکسل</a>
+                        <a onclick="history.back()" class="btn btn-outline-danger">
+                            <span>انصراف و بازگشت</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <table id="dataTableExample" class="table">
+                <thead>
+                    <tr>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.name)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.count)
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.count)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        document.getElementById("index").style.transform = "scale(1)";
+        function back() {
+            document.getElementById("index").style.transform = "scale(0)";
+            setTimeout(function () {
+                window.location.href = "/nevers/tedad_paye";
+            }, 2000);
+        }
+    </script>
+
+    @*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% export to excel*@
+    <script>
+        function exportTableToExcel(tableID, filename = '') {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableID);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+            // Specify file name
+            filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+            // Create download link element
+            downloadLink = document.createElement("a");
+
+            document.body.appendChild(downloadLink);
+
+            if (navigator.msSaveOrOpenBlob) {
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                // Setting the file name
+                downloadLink.download = filename;
+
+                //triggering the function
+                downloadLink.click();
+            }
+        }
+    </script>
+    @*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% export to excel*@
+
+
+}
+

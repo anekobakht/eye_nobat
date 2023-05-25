@@ -1,0 +1,241 @@
+
+@{
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<div class="main-content1">
+
+    <div class="page-content1">
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                        <h4 class="mb-sm-0 font-size-18">داشبورد</h4>
+
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">داشبورد</a></li>
+                                <li class="breadcrumb-item active">صفحه اصلی</li>
+                            </ol>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end page title -->
+
+            <div class="row">
+                <div class="col-xl-3 col-md-6">
+                    <!-- card -->
+                    <div class="card card-h-100">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">خطاها</span>
+                                    <h4 class="mb-3">
+                                        <span class="text-muted mb-3 lh-1 d-block text-truncate ">@ViewBag.v_count_never</span>
+                                    </h4>
+                                </div>
+
+                                <div class="col-6">
+                                    <div id="customersChart" class="mt-md-3 mt-xl-0"></div>
+                                </div>
+                            </div>
+                            <div class="text-nowrap">
+                                <span class="badge bg-soft-danger text-success ">از ابتدا تاکنون</span>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+
+                <div class="col-xl-3 col-md-6">
+                    <!-- card -->
+                    <div class="card card-h-100">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">دانشگاه ها</span>
+                                    <h4 class="mb-3">
+                                        <span class="text-muted mb-3 lh-1 d-block text-truncate">@ViewBag.v_count_uni</span>
+                                    </h4>
+                                </div>
+                                <div class="col-6">
+                                    <div id="ordersChart" class="mt-md-3 mt-xl-0"></div>
+                                </div>
+                            </div>
+                            <div class="text-nowrap">
+                                <span class="badge bg-soft-success text-success">از ابتدا تاکنون</span>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col-->
+
+                <div class="col-xl-3 col-md-6">
+                    <!-- card -->
+                    <div class="card card-h-100">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">بیمارستان ها</span>
+                                    <h4 class="mb-3">
+                                        <span class="text-muted mb-3 lh-1 d-block text-truncate">@ViewBag.v_count_hos</span>
+                                    </h4>
+                                </div>
+                                <div class="col-6">
+                                    <div id="growthChart" class="mt-md-3 mt-xl-0"></div>
+                                </div>
+                            </div>
+                            <div class="text-nowrap">
+                                <span class="badge bg-soft-success text-success">از ابتدا تاکنون</span>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+
+                <div class="col-xl-3 col-md-6">
+                    <!-- card -->
+                    <div class="card card-h-100">
+                        <!-- card body -->
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <span class="text-muted mb-3 lh-1 d-block text-truncate">بخش ها</span>
+                                    <h4 class="mb-3">
+                                        <span class="text-muted mb-3 lh-1 d-block text-truncate">@ViewBag.v_count_bakhsh</span>
+                                    </h4>
+                                </div>
+                                <div class="col-6">
+                                    <div id="customersChart" class="mt-md-3 mt-xl-0"></div>
+                                </div>
+                            </div>
+                            <div class="text-nowrap">
+                                <span class="badge bg-soft-success text-success">از ابتدا تاکنون</span>
+                            </div>
+                        </div><!-- end card body -->
+                    </div><!-- end card -->
+                </div><!-- end col -->
+            </div><!-- end row-->
+            <div class="row">
+                <div class="col-12 col-xl-12 grid-margin stretch-card">
+                    <div class="card overflow-hidden">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-baseline mb-4 mb-md-3">
+                                <h6 class="card-title mb-0">خطاهای ثبت شده</h6>
+                                <div class="dropdown">
+                                    <a type="button" id="dropdownMenuButton3" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="icon-lg text-muted pb-3px" data-feather="more-horizontal"></i>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                                        <a class="dropdown-item d-flex align-items-center" href="javascript:;">
+                                            <i data-feather="eye"
+                                               class="icon-sm me-2"></i> <span class="">مشاهده</span>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center" href="javascript:;">
+                                            <i data-feather="edit-2"
+                                               class="icon-sm me-2"></i> <span class="">ویرایش</span>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center" href="javascript:;">
+                                            <i data-feather="trash"
+                                               class="icon-sm me-2"></i> <span class="">حذف</span>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center" href="javascript:;">
+                                            <i data-feather="printer"
+                                               class="icon-sm me-2"></i> <span class="">چاپ</span>
+                                        </a>
+                                        <a class="dropdown-item d-flex align-items-center" href="javascript:;">
+                                            <i data-feather="download"
+                                               class="icon-sm me-2"></i> <span class="">دانلود</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row align-items-start">
+                                <div class="col-md-7">
+                                    <p class="text-muted tx-13 mb-3 mb-md-0"></p>
+                                </div>
+                                <div class="col-md-5 d-flex justify-content-md-end">
+                                    <div class="btn-group mb-3 mb-md-0" role="group" aria-label="Basic example">
+                                        <button hidden type="button" class="btn btn-outline-primary">امروز</button>
+                                        @* <button hidden type="button" class="btn btn-outline-primary d-none d-md-block">هفته</button>*@
+                                        <button hidden type="button" class="btn btn-primary">ماه</button>
+                                        <button type="button" class="btn btn-primary">از ابتدا تا کنون</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="chartContainer1" style="height:500px"></div>
+                            <div id="chartContainer2" style="height:500px"></div>
+                            <div id="chartContainer3" style="height:500px"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <!-- container-fluid -->
+    </div>
+
+
+
+</div>
+<!-- end main content-->
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="~/js/canvasjs.min.js"></script>
+    <script type="text/javascript">
+
+        var result = @Html.Raw(ViewBag.DataPoints);
+        var dataPoints =[];
+        for(var i = 0; i < result.length; i++){
+            dataPoints.push({label:result[i].name, y:result[i].count});
+        }
+
+        window.onload = function() {
+            var chart1 = new CanvasJS.Chart("chartContainer1", {
+                theme: "light2",
+                zoomEnabled: true,
+                animationEnabled: true,
+                title: {
+                    text: ""
+                },
+                data: [
+                {
+                        type: "pie",
+                    dataPoints: dataPoints,
+                }
+                ]
+            });
+            var chart2 = new CanvasJS.Chart("chartContainer2", {
+                theme: "light2",
+                animationEnabled: true,
+                data: [
+                    {
+                        type: "column",
+                        dataPoints: dataPoints,
+                    }
+                ]
+            });
+            var chart3 = new CanvasJS.Chart("chartContainer3", {
+                theme: "light2",
+                animationEnabled: true,
+                data: [
+                    {
+                        type: "line",
+                        dataPoints: dataPoints,
+                    }
+                ]
+            });
+            chart1.render();
+            chart2.render();
+            chart3.render();
+        };
+
+
+    </script>
+
+}
