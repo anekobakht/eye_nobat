@@ -42,6 +42,12 @@
                                 <input id="saat_vorud" required name="saat_vorud" class="form-control" />
                             </div>
                         </div>
+                         <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">توضیحات</label>
+                                <textarea rows="5" id="Tozihat" name="Tozihat" style="width:100%"></textarea>
+                            </div>
+                        </div>
 
                         <div>
                             <hr />
@@ -244,9 +250,17 @@
         }
     </script>
     @*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% export to excel*@
-    <script>
+  @*   <script>
         $("#date_vorud").inputmask("9999/99/99");
         $("#saat_vorud").inputmask("99:99");
+    </script> *@
+
+    <script type="text/javascript">
+       
+            $("#date_vorud").persianDatePicker({
+                selectedBefore: !0
+          
+        });
     </script>
 
 }

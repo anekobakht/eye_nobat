@@ -56,14 +56,14 @@ namespace eye_nobat.Controllers
         public async Task<IActionResult> Index()
         {
               return _context.koli != null ? 
-                          View(await _context.koli.ToListAsync()) :
+                          View(await _context.koli.Where(s => (s.etmam == false) || (s.etmam == null)).ToListAsync()) :
                           Problem("Entity set 'eye_nobatContext.koli'  is null.");
         }
 
         public async Task<IActionResult> check()
         {
             return _context.koli != null ?
-                        View(await _context.koli.Where(s => (s.etmam == false)||(s.etmam==null)).ToListAsync()):
+                        View(await _context.koli.ToListAsync()):
                         Problem("Entity set 'eye_nobatContext.koli'  is null.");
         }
 
@@ -96,13 +96,14 @@ namespace eye_nobat.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(long id,string flname,string moshahede , string ejra,string etmam,string name_hos,string date_vorud,string saat_vorud,koli koli)
+        public async Task<IActionResult> Create(long id,string Tozihat,string flname,string moshahede , string ejra,string etmam,string name_hos,string date_vorud,string saat_vorud,koli koli)
         {
             koli.id = id;
             koli.flname = flname;
             koli.name_hos = name_hos;
             koli.date_vorud = date_vorud;
             koli.saat_vorud = saat_vorud;
+            koli.Tozihat = Tozihat;
             if(moshahede =="on")
             {
                 koli.moshahede = true;
@@ -154,7 +155,7 @@ namespace eye_nobat.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id,string moshahede,string ejra,string etmam,  [Bind("id,flname,moshahede,ejra,etmam,name_hos,date_vorud,saat_vorud")] koli koli)
+        public async Task<IActionResult> Edit(long id,string Tozihat,string moshahede,string ejra,string etmam,  [Bind("id,Tozihat,flname,moshahede,ejra,etmam,name_hos,date_vorud,saat_vorud")] koli koli)
         {
             if (id != koli.id)
             {
@@ -189,6 +190,7 @@ namespace eye_nobat.Controllers
                 {
                     koli.etmam = false;
                 }
+                
                 _context.Update(koli);
                     await _context.SaveChangesAsync();
                 }

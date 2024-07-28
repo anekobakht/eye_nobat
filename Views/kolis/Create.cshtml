@@ -34,6 +34,12 @@
                 <span asp-validation-for="etmam" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Tozihat" class="control-label"></label>
+                @* <input asp-for="Tozihat" class="form-control" /> *@
+                <textarea asp-for="Tozihat" cols="12" rows="5"></textarea>
+                <span asp-validation-for="Tozihat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>

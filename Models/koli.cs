@@ -34,6 +34,9 @@ namespace eye_nobat.Models
         [Display(Name = "ساعت ورود")]
         public string? saat_vorud { get; set; }
         //**********************************************************************
+        [Display(Name = "توضیحات")]
+        public string? Tozihat { get; set; }
+        //**********************************************************************
 
 
 
