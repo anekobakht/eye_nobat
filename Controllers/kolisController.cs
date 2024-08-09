@@ -20,6 +20,18 @@ namespace eye_nobat.Controllers
             _context = context;
         }
 
+        public async Task<IActionResult> SortDate()
+        {
+            //return View(_context.koli.OrderBy(s=>s.date_vorud).OrderBy(s=>s.saat_vorud).ToListAsync());
+            return RedirectToAction("Index", "kolis", new {@Sort="SortDate"});
+        }
+
+        public async Task<IActionResult> SortName()
+        {
+            //return View(_context.koli.OrderBy(s=>s.date_vorud).OrderBy(s=>s.saat_vorud).ToListAsync());
+            return RedirectToAction("Index", "kolis", new { @Sort = "SortName" });
+        }
+
         public async Task<IActionResult> login()
         {
             return View();
@@ -30,7 +42,7 @@ namespace eye_nobat.Controllers
         {
             if((uname=="admin")&(pass=="1qaz!QAZ"))
             {
-                return RedirectToAction("check", "kolis");
+                return RedirectToAction("Index", "kolis");
             }
             else
             {
@@ -53,11 +65,28 @@ namespace eye_nobat.Controllers
 
 
         // GET: kolis
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string Sort)
         {
-              return _context.koli != null ? 
-                          View(await _context.koli.Where(s => (s.etmam == false) || (s.etmam == null)).ToListAsync()) :
-                          Problem("Entity set 'eye_nobatContext.koli'  is null.");
+            if (Sort == "SortDate")
+            {
+                return _context.koli != null ?
+                                          View(await _context.koli.Where(s => (s.etmam == false) || (s.etmam == null)).OrderByDescending(r => r.date_vorud).ThenBy(r => r.saat_vorud).ToListAsync()) :
+                                          Problem("Entity set 'eye_nobatContext.koli'  is null.");
+            }
+            else if (Sort == "SortName")
+            {
+                return _context.koli != null ?
+                                          View(await _context.koli.Where(s => (s.etmam == false) || (s.etmam == null)).OrderBy(r => r.flname).ToListAsync()) :
+                                          Problem("Entity set 'eye_nobatContext.koli'  is null.");
+            }
+            else
+            {
+
+                return _context.koli != null ?
+                                          View(await _context.koli.Where(s => (s.etmam == false) || (s.etmam == null)).ToListAsync()) :
+                                          Problem("Entity set 'eye_nobatContext.koli'  is null.");
+            }
+
         }
 
         public async Task<IActionResult> check()

@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_LayoutMain.cshtml";
 }
 
-<style>
+@* <style>
     .Sort{
         cursor:pointer;
         background-color:lightgray !important;
     }
 </style>
-
+ *@
 
 
 @*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% create*@
@@ -87,6 +87,11 @@
                     </div>
                     <div class="col-sm-6 bg-primary text-white" style="text-align:left">
                         <a onclick="exportTableToExcel('dataTableExample', 'خروجی فایل اکسل')" class="btn btn-outline-warning">انقال به اکسل</a>
+                        <form style="padding-top:10px">
+                            <input class="btn btn-outline-success" type="submit" asp-action="SortDate" asp-controller="kolis" value="مرتب سازی بر اساس تاریخ و ساعت"></input>
+                            <input class="btn btn-outline-danger" type="submit" asp-action="SortName" asp-controller="kolis" value="مرتب سازی بر اساس نام و نام خانوادگی"></input>
+                        </form>
+                       
                     </div>
                 </div>
             </div>
@@ -99,10 +104,10 @@
                         <th>
                             @Html.DisplayNameFor(model => model.name_hos)
                         </th>
-                        <th class="Sort" onclick="sortTable(0)">
+                        <th >
                             @Html.DisplayNameFor(model => model.date_vorud)
                         </th>
-                        <th class="Sort" onclick="sortTable(1)">
+                        <th>
                             @Html.DisplayNameFor(model => model.saat_vorud)
                         </th>
                         <th>
@@ -269,7 +274,7 @@
     </script>
 
     @* ===============================================================Sort Table *@
-    <script>
+  @*   <script>
         function sortTable(n) {
             var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
             table = document.getElementById("dataTableExample");
@@ -324,7 +329,7 @@
                 }
             }
         }
-    </script>
+    </script> *@
     @* ===============================================================Sort Table *@
 
 }
